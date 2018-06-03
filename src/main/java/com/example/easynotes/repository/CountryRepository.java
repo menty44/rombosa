@@ -2,6 +2,9 @@ package com.example.easynotes.repository;/**
  * Created by admin on 5/27/18.
  */
 
+import com.example.easynotes.model.Country;
+import org.springframework.data.jpa.repository.JpaRepository;
+
 /**
  * @author Fredrick Oluoch
  *         http://www.blaqueyard.com
@@ -10,5 +13,5 @@ package com.example.easynotes.repository;/**
  */
 
 
-public interface CountryRepository {
+public interface CountryRepository extends JpaRepository<Country, Long> {
 }

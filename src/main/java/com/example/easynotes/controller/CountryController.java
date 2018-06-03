@@ -1,4 +1,6 @@
-package com.example.easynotes.controller;/**
+package com.example.easynotes.controller;
+
+/**
  * Created by admin on 5/27/18.
  */
 

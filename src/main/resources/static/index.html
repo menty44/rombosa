@@ -1,76 +1,207 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<html ng-app="mainApp">
+
+<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
 
-<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-<link href="style.css" rel="stylesheet">
-<script src="index.js"></script>
+<link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="lib/ng-dialog/css/ngDialog.min.css">
+<link rel="stylesheet" href="lib/ng-dialog/css/ngDialog-theme-default.min.css">
 
-<title>Ngoma Ibambe</title>
-<div id="flipkart-navbar">
-    <div class="container">
-        <div class="row row1">
-            <ul class="largenav pull-right">
-                <li class="upper-links"><a class="links" href="http://clashhacks.in/">Link 1</a></li>
-                <li class="upper-links"><a class="links" href="https://campusbox.org/">Link 2</a></li>
-                <li class="upper-links"><a class="links" href="http://clashhacks.in/">Link 3</a></li>
-                <!--<li class="upper-links"><a class="links" href="http://clashhacks.in/">Link 4</a></li>-->
-                <!--<li class="upper-links"><a class="links" href="http://clashhacks.in/">Link 5</a></li>-->
-                <!--<li class="upper-links"><a class="links" href="http://clashhacks.in/">Link 6</a></li>-->
-                <!--<li class="upper-links">-->
-                    <!--<a class="links" href="http://clashhacks.in/">-->
-                        <!--<svg class="" width="16px" height="12px" style="overflow: visible;">-->
-                            <!--<path d="M8.037 17.546c1.487 0 2.417-.93 2.417-2.417H5.62c0 1.486.93 2.415 2.417 2.415m5.315-6.463v-2.97h-.005c-.044-3.266-1.67-5.46-4.337-5.98v-.81C9.01.622 8.436.05 7.735.05 7.033.05 6.46.624 6.46 1.325v.808c-2.667.52-4.294 2.716-4.338 5.98h-.005v2.972l-1.843 1.42v1.376h14.92v-1.375l-1.842-1.42z" fill="#fff"></path>-->
-                        <!--</svg>-->
-                    <!--</a>-->
-                <!--</li>-->
-                <!--<li class="upper-links dropdown"><a class="links" href="http://clashhacks.in/">Dropdown</a>-->
-                    <!--<ul class="dropdown-menu">-->
-                        <!--<li class="profile-li"><a class="profile-links" href="http://yazilife.com/">Link</a></li>-->
-                        <!--<li class="profile-li"><a class="profile-links" href="http://hacksociety.tech/">Link</a></li>-->
-                        <!--<li class="profile-li"><a class="profile-links" href="http://clashhacks.in/">Link</a></li>-->
-                        <!--<li class="profile-li"><a class="profile-links" href="http://clashhacks.in/">Link</a></li>-->
-                        <!--<li class="profile-li"><a class="profile-links" href="http://clashhacks.in/">Link</a></li>-->
-                        <!--<li class="profile-li"><a class="profile-links" href="http://clashhacks.in/">Link</a></li>-->
-                        <!--<li class="profile-li"><a class="profile-links" href="http://clashhacks.in/">Link</a></li>-->
-                    <!--</ul>-->
-                <!--</li>-->
+<script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="//raw.githubusercontent.com/michaelbromley/angularUtils/master/src/directives/pagination/dirPagination.js"></script>
+<script src="//raw.githubusercontent.com/michaelbromley/angularUtils/master/src/directives/pagination/dirPagination.js"></script>
+
+<!-- build:[src] //ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js -->
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+<!-- /build -->
+<!-- build:[src] //ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js -->
+<!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>-->
+<!-- /build -->
+<!-- build:[src] //ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.min.js -->
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.min.js"></script>
+<!-- /build -->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>-->
+<!-- build:[src] //ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-cookies.min.js -->
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-cookies.min.js"></script>
+<!-- /build -->
+
+<script src="//cdn.rawgit.com/jpillora/xdomain/0.7.4/dist/xdomain.min.js"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+<!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>-->
+<!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>-->
+
+<!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>-->
+<!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-cookies.min.js"></script>-->
+
+<!-- build:[src] //ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js -->
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
+
+<!-- /build -->
+<!-- build:[src] //ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.min.js -->
+<!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.min.js"></script>-->
+
+<!-- /build -->
+<!-- build:[src] //ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-cookies.min.js -->
+<!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-cookies.min.js"></script>-->
+
+<!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-cookies.min.js"></script>-->
+
+<script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.3/dist/loadingoverlay.min.js"></script>
+<link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.9.0/loading-bar.min.css' type='text/css' media='all' />
+
+<link href="http://cdn.phpoll.com/css/animate.css" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+
+<title>AfroBoot</title>
+
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="">Afroboot</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse" >
+            <ul class="nav navbar-nav">
+                <!--<li><a href="">{{nav.name}}</a></li>-->
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#!photos">Photos</a></li>
+                <li><a href="">Twerk Clips</a></li>
+                <li><a href="#/leaked">Leaked</a></li>
+                <li><a href="">Uncensored</a></li>
+                <li><a href="#!upload">Upload</a></li>
+                <!--<li><a href="">Hookup</a></li>-->
             </ul>
-        </div>
-        <div class="row row2">
-            <div class="col-sm-2">
-                <h2 style="margin:0px;"><span class="smallnav menu" onclick="openNav()">☰ Brand</span></h2>
-                <h1 style="margin:0px;"><span class="largenav">Ngoma Ibambe</span></h1>
-            </div>
-            <div class="flipkart-navbar-search smallsearch col-sm-8 col-xs-11">
-                <div class="row">
-                    <input class="flipkart-navbar-input col-xs-11" type="" placeholder="Search for Products, Brands and more" name="">
-                    <button class="flipkart-navbar-button col-xs-1">
-                        <svg width="15px" height="15px">
-                            <path d="M11.618 9.897l4.224 4.212c.092.09.1.23.02.312l-1.464 1.46c-.08.08-.222.072-.314-.02L9.868 11.66M6.486 10.9c-2.42 0-4.38-1.955-4.38-4.367 0-2.413 1.96-4.37 4.38-4.37s4.38 1.957 4.38 4.37c0 2.412-1.96 4.368-4.38 4.368m0-10.834C2.904.066 0 2.96 0 6.533 0 10.105 2.904 13 6.486 13s6.487-2.895 6.487-6.467c0-3.572-2.905-6.467-6.487-6.467 "></path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-            <!--<div class="cart largenav col-sm-2">-->
-                <!--<a class="cart-button">-->
-                    <!--<svg class="cart-svg " width="16 " height="16 " viewBox="0 0 16 16 ">-->
-                        <!--<path d="M15.32 2.405H4.887C3 2.405 2.46.805 2.46.805L2.257.21C2.208.085 2.083 0 1.946 0H.336C.1 0-.064.24.024.46l.644 1.945L3.11 9.767c.047.137.175.23.32.23h8.418l-.493 1.958H3.768l.002.003c-.017 0-.033-.003-.05-.003-1.06 0-1.92.86-1.92 1.92s.86 1.92 1.92 1.92c.99 0 1.805-.75 1.91-1.712l5.55.076c.12.922.91 1.636 1.867 1.636 1.04 0 1.885-.844 1.885-1.885 0-.866-.584-1.593-1.38-1.814l2.423-8.832c.12-.433-.206-.86-.655-.86 " fill="#fff "></path>-->
-                    <!--</svg> Link-->
-                    <!--<span class="item-number ">0</span>-->
-                <!--</a>-->
-            <!--</div>-->
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="http://phpoll.com/register" class="dropdown-toggle" data-toggle="dropdown">Register <span class="caret"></span></a>
+                    <ul class="dropdown-menu dropdown-lr animated flipInX" role="menu">
+                        <div class="col-lg-12">
+                            <div class="text-center">
+                                <h3><b>Register</b></h3></div>
+                            <form id="ajax-register-form" action="http://phpoll.com/register/process" method="post" role="form" autocomplete="off">
+                                <div class="form-group">
+                                    <label for="email">First Name</label>
+                                    <input type="text" name="firstname" id="firstname" tabindex="1" class="form-control" placeholder="firstname" value="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Last Name</label>
+                                    <input type="text" name="lastname" id="lastname" tabindex="1" class="form-control" placeholder="lastname" value="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Mobile</label>
+                                    <input type="text" name="mobile" id="mobile" tabindex="1" class="form-control" placeholder="mobile" value="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Password</label>
+                                    <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-xs-6 col-xs-offset-3">
+                                            <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-info" value="Register Now">
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="hidden" class="hide" name="token" id="token" value="7c6f19960d63f53fcd05c3e0cbc434c0">
+                            </form>
+                        </div>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="http://phpoll.com/login" class="dropdown-toggle" data-toggle="dropdown">Log In <span class="caret"></span></a>
+                    <ul class="dropdown-menu dropdown-lr animated slideInRight" role="menu">
+                        <div class="col-lg-12">
+                            <div class="text-center">
+                                <h3><b>Log In</b></h3></div>
+                            <form id="ajax-login-form" action="http://phpoll.com/login/process" method="post" role="form" autocomplete="off">
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="text" name="email" id="email" tabindex="1" class="form-control" placeholder="email" value="" autocomplete="off">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" autocomplete="off">
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-xs-7">
+                                            <input type="checkbox" tabindex="3" name="remember" id="remember">
+                                            <label for="remember"> Remember Me</label>
+                                        </div>
+                                        <div class="col-xs-5 pull-right">
+                                            <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-success" value="Log In">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="text-center">
+                                                <a href="http://phpoll.com/recover" tabindex="5" class="forgot-password">Forgot Password?</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="hidden" class="hide" name="token" id="token" value="a465a2791ae0bae853cf4bf485dbe1b6">
+                            </form>
+                        </div>
+                    </ul>
+                </li>
+            </ul>
+
         </div>
     </div>
+</nav>
+
+<div class="col-md-2">
+    left side
 </div>
-<div id="mySidenav" class="sidenav">
-    <div class="container" style="background-color: #eb27f0; padding-top: 10px;">
-        <span class="sidenav-heading">Home</span>
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+
+<div class="col-md-8">
+    <div ng-controller="fredCtrl" ng-init="categories()">
+
+        <ul class="nav navbar-nav" ng-repeat="nav in navbar">
+            <li class="active"><a href="#!">{{nav.name}}</a></li>
+
+        </ul>
     </div>
-    <a href="http://clashhacks.in/">Link</a>
-    <a href="http://clashhacks.in/">Link</a>
-    <a href="http://clashhacks.in/">Link</a>
-    <a href="http://clashhacks.in/">Link</a>
 </div>
+
+<div class="col-md-2">
+    right side
+</div>
+
+
+<script>
+
+</script>
+<!--<script src="index.js"></script>-->
+<script>
+
+
+</script>
+<script src="js/routes.js"></script>
+
+<script src="js/categories.js"></script>
+
+</body>
+
+</html>

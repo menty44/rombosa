@@ -52,7 +52,6 @@ public class GenderController {
         Gender gender = genderRepository.findById(genderId)
                 .orElseThrow(() -> new ResourceNotFoundException("Gender", "id", genderId));
 
-        //gender.setTitle(noteDetails.getTitle());
         gender.setName(GenderName.getName());
 
         Gender updatedGender = genderRepository.save(gender);

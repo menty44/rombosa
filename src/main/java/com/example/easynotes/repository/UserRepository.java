@@ -1,6 +1,11 @@
-package com.example.easynotes.repository;/**
+package com.example.easynotes.repository;
+
+/**
  * Created by admin on 5/27/18.
  */
+
+import com.example.easynotes.model.User;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  * @author Fredrick Oluoch
@@ -9,5 +14,5 @@ package com.example.easynotes.repository;/**
  *         email: menty44@gmail.com
  */
 
-public interface UserRepository {
+public interface UserRepository extends JpaRepository<User, Long> {
 }

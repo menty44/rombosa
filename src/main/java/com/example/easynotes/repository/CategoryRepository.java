@@ -2,6 +2,9 @@ package com.example.easynotes.repository;/**
  * Created by admin on 6/2/18.
  */
 
+import com.example.easynotes.model.Category;
+import org.springframework.data.jpa.repository.JpaRepository;
+
 /**
  * Fredrick Oluoch
  * http://www.blaqueyard.com
@@ -10,5 +13,7 @@ package com.example.easynotes.repository;/**
  */
 
 
-public interface CategoryReposity {
+public interface CategoryRepository extends JpaRepository<Category, Long> {
+
+
 }
