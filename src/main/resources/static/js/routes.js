@@ -6,9 +6,9 @@
  * email: menty44@gmail.com
  */
 
-//var mainApp = angular.module("mainApp", []);
+var mainApp = angular.module("mainApp", []);
 
-angular.config("mainApp", [ "$routeProvider", function($routeProvider){
+mainApp.config("mainApp", [ "$routeProvider", function($routeProvider){
 
     $routeProvider
         .when("/", {
@@ -25,19 +25,3 @@ angular.config("mainApp", [ "$routeProvider", function($routeProvider){
         });
 
 }]);
-//var app = angular.module("myApp", ["ngRoute"]);
-// mainApp.config(function($routeProvider) {
-    // $routeProvider
-    //     .when("/", {
-    //         templateUrl : "index.html"
-    //     })
-    //     .when("/leak", {
-    //         templateUrl : "leak.html"
-    //     })
-    //     .when("/upload", {
-    //         templateUrl : "upload.html"
-    //     })
-    //     .when("/photos", {
-    //         templateUrl : "photos.html"
-    //     });
-// });
