@@ -44,6 +44,14 @@ public class UserController {
                 .orElseThrow(() -> new ResourceNotFoundException("User", "id", userId));
     }
 
+    @GetMapping("/useremail/{email}")
+    public User getUserByEmail(@PathVariable(value = "email") String Email) {
+        return userRepository.findByEmail(Email);
+                //.orElseThrow(() -> new ResourceNotFoundException("User", "email", Email));
+    }
+
+
+
     @PutMapping("/user/{id}")
     public User updateUser(@PathVariable(value = "id") Long userId,
                                @Valid @RequestBody User UserName) {

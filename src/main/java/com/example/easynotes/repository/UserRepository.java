@@ -7,6 +7,10 @@ package com.example.easynotes.repository;
 import com.example.easynotes.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+//import com.sun.tools.javac.util.List;
+
+//import com.sun.tools.javac.util.List;
+
 /**
  * @author Fredrick Oluoch
  *         http://www.blaqueyard.com
@@ -15,4 +19,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 
 public interface UserRepository extends JpaRepository<User, Long> {
+
+    User findByEmail(String email);
 }

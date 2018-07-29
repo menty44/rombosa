@@ -19,7 +19,7 @@ import java.util.Date;
  */
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(value = {"createdAt", "updatedAt"},
         allowGetters = true)
@@ -44,7 +44,10 @@ public class User {
     @NotBlank
     private String password;
 
-    @NotBlank
+
+    private String uid;
+
+    //@NotBlank
     private String activated;
 
     @Column(nullable = false, updatable = false)
@@ -112,6 +115,14 @@ public class User {
 
     public void setActivated(String activated) {
         this.activated = activated;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
     public Date getCreatedAt() {
