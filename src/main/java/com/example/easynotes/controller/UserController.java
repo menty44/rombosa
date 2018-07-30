@@ -32,10 +32,16 @@ public class UserController {
         return userRepository.findAll();
     }
 
-    @PostMapping("/user")
+    @PostMapping("/userpost")
     public User createUser(@Valid @RequestBody User user) {
+
         return userRepository.save(user);
     }
+
+//    @PostMapping("/gender")
+//    public Gender createGender(@Valid @RequestBody Gender gender) {
+//        return genderRepository.save(gender);
+//    }
 
 
     @GetMapping("/user/{id}")
@@ -49,8 +55,6 @@ public class UserController {
         return userRepository.findByEmail(Email);
                 //.orElseThrow(() -> new ResourceNotFoundException("User", "email", Email));
     }
-
-
 
     @PutMapping("/user/{id}")
     public User updateUser(@PathVariable(value = "id") Long userId,
