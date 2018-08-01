@@ -1,7 +1,7 @@
 {
   "name": "afroboot",
   "version": "1.0.0",
-  "description": "Build Restful CRUD API for a simple Note-Taking application using Spring Boot, Mysql, JPA and Hibernate.",
+  "description": "This is a website for African beautiful and bootyful ladies developed using SpringBoot, Jade, NodeJs, AngularJs, RabbitMQ, posgresql, JPA and Hibernate.",
   "main": "index.js",
   "dependencies": {
     "gulp-jade": "^1.1.0",

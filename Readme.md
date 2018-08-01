@@ -1,14 +1,13 @@
-# Spring Boot, MySQL, JPA, Hibernate Rest API Tutorial
+# AfroBoot Website.
 
-Build Restful CRUD API for a simple Note-Taking application using Spring Boot, Mysql, JPA and Hibernate.
-
+This is a website for African beautiful and bootyful ladies developed using SpringBoot, Jade, NodeJs, AngularJs, RabbitMQ, posgresql, JPA and Hibernate.
 ## Requirements
 
 1. Java - 1.8.x
 
 2. Maven - 3.x.x
 
-3. Mysql - 5.x.x
+3. Postgres - 9.x.x
 
 ## Steps to Setup
 
