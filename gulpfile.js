@@ -6,7 +6,7 @@ var concat = require('gulp-concat');
 
 gulp.task('default', function() {
     return gulp.src('src/main/resources/static/js/*.js')
-        .pipe(concat('all.js'))
+        .pipe(concat('app.js'))
         .pipe(uglify('app.js', {
                     mangle: false,
                     output: {
