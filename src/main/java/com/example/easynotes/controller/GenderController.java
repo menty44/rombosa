@@ -36,6 +36,7 @@ public class GenderController {
 
     @PostMapping("/gender")
     public Gender createGender(@Valid @RequestBody Gender gender) {
+
         return genderRepository.save(gender);
     }
 

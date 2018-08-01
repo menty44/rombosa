@@ -5,8 +5,11 @@ package com.example.easynotes.controller;
  */
 
 
+import com.example.easynotes.model.MpesastkPush;
+import com.example.easynotes.repository.MpesastkpushRepository;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.BufferedReader;
@@ -17,6 +20,17 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Collections;
 import java.util.Map;
+
+//import org.json.simple.parser.JSONParser;
+//import org.json.simple.parser.ParseException;
+
+//import javax.json.Json;
+//import javax.json.JsonArray;
+//import javax.json.JsonObject;
+//import javax.json.JsonReader;
+//import javax.json.JsonValue;
+//import org.json.simple.JSONArray;
+//import org.json.simple.JSONObject;
 
 //import org.springframework.web.bind.annotation.*;
 
@@ -35,6 +49,9 @@ import java.util.Map;
 
 @RestController
 public class MpesaController {
+
+    @Autowired
+    MpesastkpushRepository msprepo;
 
     @CrossOrigin
     @RequestMapping(value = "mpesastk", method = RequestMethod.GET, produces = "application/json")
@@ -104,6 +121,8 @@ public class MpesaController {
         jsonObject.put("TransactionDesc", "fredLTD");
 
 
+
+
         jsonArray.put(jsonObject);
 
         String requestJson=jsonArray.toString().replaceAll("[\\[\\]]","");
@@ -146,6 +165,29 @@ public class MpesaController {
         System.out.print("###########################################################################################\n");
         System.out.print("\n");
         System.out.print("\n");
+
+        MpesastkPush msp = new MpesastkPush();
+
+        msp.setMerchantrequestid("31739-338184-1");
+        msp.setCheckoutrequestid("ws_CO_DMZ_57531066_31072018223518941");
+        msp.setResponsecode(0);
+        msp.setResponsedescription("Success. Request accepted for processing");
+        msp.setCustomermessage("Success. Request accepted for processing");
+        msp.setUserid(2882);
+
+        msprepo.save(msp);
+
+
+
+
+
+//        System.out.println("responsecode: " + myObject.getInt("ResponseCode"));
+
+//        System.out.println("MerchantRequestID: " + myObject.getString("MerchantRequestID"));
+//        System.out.println("CheckoutRequestID: " + myObject.getString("CheckoutRequestID"));
+//        System.out.println("ResponseDescription: " + myObject.getString("ResponseDescription"));
+//        System.out.println("CustomerMessage: " + myObject.getString("CustomerMessage"));
+
 
         return response.toString();
     }

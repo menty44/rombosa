@@ -1,0 +1,29 @@
+{
+  "name": "afroboot",
+  "version": "1.0.0",
+  "description": "Build Restful CRUD API for a simple Note-Taking application using Spring Boot, Mysql, JPA and Hibernate.",
+  "main": "index.js",
+  "dependencies": {
+    "gulp-jade": "^1.1.0",
+    "pump": "^3.0.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-uglify": "^3.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/menty44/rombosa.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/menty44/rombosa/issues"
+  },
+  "homepage": "https://github.com/menty44/rombosa#readme"
+}
