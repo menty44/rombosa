@@ -7,8 +7,9 @@ package com.example.easynotes.controller;
 
 import com.example.easynotes.model.MpesastkPush;
 import com.example.easynotes.repository.MpesastkpushRepository;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,6 +21,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Collections;
 import java.util.Map;
+
+//import org.json.JSONArray;
+//import org.json.JSONObject;
 
 //import org.json.simple.parser.JSONParser;
 //import org.json.simple.parser.ParseException;
@@ -120,14 +124,9 @@ public class MpesaController {
         jsonObject.put("QueueTimeOutURL", "tp://51.15.242.122:8310/c2b/confirmation");
         jsonObject.put("TransactionDesc", "fredLTD");
 
-
-
-
-        jsonArray.put(jsonObject);
+        jsonArray.add(jsonObject);
 
         String requestJson=jsonArray.toString().replaceAll("[\\[\\]]","");
-
-        //String postJsonData = "{\"id\":5,\"countryName\":\"USA\",\"population\":8000}";
 
         // Send post request
         con.setDoOutput(true);
@@ -166,28 +165,37 @@ public class MpesaController {
         System.out.print("\n");
         System.out.print("\n");
 
-        MpesastkPush msp = new MpesastkPush();
+        try {
+            System.out.println("Reading JSON file from Java program\n");
+            JSONParser parser = new JSONParser();
+            JSONObject mystring = (JSONObject) parser.parse(response.toString());
 
-        msp.setMerchantrequestid("31739-338184-1");
-        msp.setCheckoutrequestid("ws_CO_DMZ_57531066_31072018223518941");
-        msp.setResponsecode(0);
-        msp.setResponsedescription("Success. Request accepted for processing");
-        msp.setCustomermessage("Success. Request accepted for processing");
+            String MerchantRequestID = (String) mystring.get("MerchantRequestID");
+            String CheckoutRequestID = (String) mystring.get("CheckoutRequestID");
+            String ResponseCode = (String) mystring.get("ResponseCode");
+            String ResponseDescription = (String) mystring.get("ResponseDescription");
+            String CustomerMessage = (String) mystring.get("CustomerMessage");
+
+            System.out.println("MerchantRequestID: " + MerchantRequestID);
+            System.out.println("CheckoutRequestID: " + CheckoutRequestID);
+            System.out.println("ResponseCode: " + Integer.parseInt(ResponseCode));
+            System.out.println("ResponseDescription: " + ResponseDescription);
+            System.out.println("CustomerMessage: " + CustomerMessage);
+
+            MpesastkPush msp = new MpesastkPush();
+
+        msp.setMerchantrequestid(MerchantRequestID);
+        msp.setCheckoutrequestid(CheckoutRequestID);
+        msp.setResponsecode(Integer.parseInt(ResponseCode));
+        msp.setResponsedescription(ResponseDescription);
+        msp.setCustomermessage(CustomerMessage);
         msp.setUserid(2882);
 
         msprepo.save(msp);
 
-
-
-
-
-//        System.out.println("responsecode: " + myObject.getInt("ResponseCode"));
-
-//        System.out.println("MerchantRequestID: " + myObject.getString("MerchantRequestID"));
-//        System.out.println("CheckoutRequestID: " + myObject.getString("CheckoutRequestID"));
-//        System.out.println("ResponseDescription: " + myObject.getString("ResponseDescription"));
-//        System.out.println("CustomerMessage: " + myObject.getString("CustomerMessage"));
-
+        }catch (Exception e ){
+            e.printStackTrace();
+        }
 
         return response.toString();
     }
