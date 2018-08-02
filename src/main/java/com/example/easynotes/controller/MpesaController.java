@@ -19,7 +19,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.Collections;
+import java.util.Date;
 import java.util.Map;
 
 //import org.json.JSONArray;
@@ -59,8 +61,8 @@ public class MpesaController {
 
     @CrossOrigin
     @RequestMapping(value = "mpesastk", method = RequestMethod.GET, produces = "application/json")
-    public Map getRev(@RequestParam(value="number", defaultValue="not available") String number ,
-                      @RequestParam(value="amount", defaultValue="not available") String amount) throws IOException {
+    public Map getRev(@RequestParam(value = "number", defaultValue = "not available") String number,
+                      @RequestParam(value = "amount", defaultValue = "not available") String amount) throws IOException {
 
         System.out.print("###########################################################################################\n");
         System.out.print("\n");
@@ -74,27 +76,27 @@ public class MpesaController {
         System.out.print("\n");
         System.out.print("\n");
 
-        Auth a = new Auth("GvzjNnYgNJtwgwfLBkZh65VPwfuKvs0V","oOpJICRVlyrGSAkM");
+        Auth a = new Auth("GvzjNnYgNJtwgwfLBkZh65VPwfuKvs0V", "oOpJICRVlyrGSAkM");
 
         a.authenticate();
 
-        a.STKPushSimulation(amount , number );
+        a.STKPushSimulation(amount, number);
 
         //String tombaone = a.tombaone();
 
         //return Collections.singletonMap(tombaone.toString());
-        return Collections.singletonMap("","");
+        return Collections.singletonMap("", "");
     }
 
 
     //test returns
     @CrossOrigin
     @RequestMapping(value = "mpesaworking", method = RequestMethod.GET, produces = "application/json")
-    public String getRevo(@RequestParam(value="number", defaultValue="not available") String number ,
-                          @RequestParam(value="amount", defaultValue="not available") String amount) throws IOException {
+    public String getRevo(@RequestParam(value = "number", defaultValue = "not available") String number,
+                          @RequestParam(value = "amount", defaultValue = "not available") String amount) throws IOException {
 
 
-        Auth a = new Auth("GvzjNnYgNJtwgwfLBkZh65VPwfuKvs0V","oOpJICRVlyrGSAkM");
+        Auth a = new Auth("GvzjNnYgNJtwgwfLBkZh65VPwfuKvs0V", "oOpJICRVlyrGSAkM");
 
         a.authenticate();
 
@@ -106,16 +108,21 @@ public class MpesaController {
         con.setRequestMethod("POST");
         con.setRequestProperty("User-Agent", "USER_AGENT");
         con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
-        con.setRequestProperty("Content-Type","application/json");
-        con.setRequestProperty("authorization","Bearer "+a.authenticate());
+        con.setRequestProperty("Content-Type", "application/json");
+        con.setRequestProperty("authorization", "Bearer " + a.authenticate());
 
-        JSONArray jsonArray=new JSONArray();
-        JSONObject jsonObject=new JSONObject();
+        SimpleDateFormat format = new SimpleDateFormat("YYYYMMDDHHmmss");
+
+        String dateString = format.format(new Date());
+        System.out.println(dateString);
+
+        JSONArray jsonArray = new JSONArray();
+        JSONObject jsonObject = new JSONObject();
         jsonObject.put("BusinessShortCode", "174379");
         jsonObject.put("Password", "MTc0Mzc5YmZiMjc5ZjlhYTliZGJjZjE1OGU5N2RkNzFhNDY3Y2QyZTBjODkzMDU5YjEwZjc4ZTZiNzJhZGExZWQyYzkxOTIwMTgwNzAzMDYyMDIy");
         jsonObject.put("Timestamp", "20180703062022");
         jsonObject.put("TransactionType", "CustomerPayBillOnline");
-        jsonObject.put("Amount",amount);
+        jsonObject.put("Amount", amount);
         jsonObject.put("PhoneNumber", number);
         jsonObject.put("PartyA", number);
         jsonObject.put("PartyB", "174379");
@@ -126,7 +133,7 @@ public class MpesaController {
 
         jsonArray.add(jsonObject);
 
-        String requestJson=jsonArray.toString().replaceAll("[\\[\\]]","");
+        String requestJson = jsonArray.toString().replaceAll("[\\[\\]]", "");
 
         // Send post request
         con.setDoOutput(true);
@@ -184,18 +191,88 @@ public class MpesaController {
 
             MpesastkPush msp = new MpesastkPush();
 
-        msp.setMerchantrequestid(MerchantRequestID);
-        msp.setCheckoutrequestid(CheckoutRequestID);
-        msp.setResponsecode(Integer.parseInt(ResponseCode));
-        msp.setResponsedescription(ResponseDescription);
-        msp.setCustomermessage(CustomerMessage);
-        msp.setUserid(2882);
+            msp.setMerchantrequestid(MerchantRequestID);
+            msp.setCheckoutrequestid(CheckoutRequestID);
+            msp.setResponsecode(Integer.parseInt(ResponseCode));
+            msp.setResponsedescription(ResponseDescription);
+            msp.setCustomermessage(CustomerMessage);
+            msp.setUserid(2882);
 
-        msprepo.save(msp);
+            msprepo.save(msp);
 
-        }catch (Exception e ){
+        } catch (Exception e) {
             e.printStackTrace();
         }
+
+        return response.toString();
+    }
+
+    @CrossOrigin
+    @RequestMapping(value = "mpesastkstatus", method = RequestMethod.GET, produces = "application/json")
+    public String getRevo(@RequestParam(value = "checkoutRequestID", defaultValue = "not available") String checkoutRequestID) throws IOException {
+
+        JSONArray jsonArray=new JSONArray();
+        JSONObject jsonObject=new JSONObject();
+        jsonObject.put("BusinessShortCode", "174379");
+        jsonObject.put("Password", "MTc0Mzc5YmZiMjc5ZjlhYTliZGJjZjE1OGU5N2RkNzFhNDY3Y2QyZTBjODkzMDU5YjEwZjc4ZTZiNzJhZGExZWQyYzkxOTIwMTgwNzAzMDYyMDIy");
+        jsonObject.put("Timestamp", "20180703062022");
+        jsonObject.put("CheckoutRequestID", checkoutRequestID);
+
+        Auth a = new Auth("GvzjNnYgNJtwgwfLBkZh65VPwfuKvs0V", "oOpJICRVlyrGSAkM");
+
+        a.authenticate();
+
+        String url = "https://sandbox.safaricom.co.ke/mpesa/stkpushquery/v1/query";
+        URL obj = new URL(url);
+        HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+
+        // Setting basic post request
+        con.setRequestMethod("POST");
+        con.setRequestProperty("User-Agent", "USER_AGENT");
+        con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
+        con.setRequestProperty("Content-Type", "application/json");
+        con.setRequestProperty("authorization", "Bearer " + a.authenticate());
+
+        jsonArray.add(jsonObject);
+
+        String requestJson=jsonArray.toString().replaceAll("[\\[\\]]","");
+
+        // Send post request
+        con.setDoOutput(true);
+        DataOutputStream wr = new DataOutputStream(con.getOutputStream());
+        wr.writeBytes(requestJson);
+        wr.flush();
+        wr.close();
+
+
+        int responseCode = con.getResponseCode();
+        //System.out.println("\nSending 'POST' request to URL : " + url);
+        //System.out.println("Post Data : " + requestJson);
+        System.out.println(requestJson);
+        //System.out.println("Response Code : " + responseCode);
+
+        BufferedReader in = new BufferedReader(
+                new InputStreamReader(con.getInputStream()));
+        String output;
+        StringBuffer response = new StringBuffer();
+
+        while ((output = in.readLine()) != null) {
+            response.append(output);
+        }
+        in.close();
+
+        System.out.print("###########################################################################################\n");
+        System.out.print("\n");
+        System.out.print("\n");
+        //printing result from response
+        System.out.println(response);
+        System.out.print("###########################################################################################\n");
+        System.out.print("\n");
+        System.out.print("\n");
+        System.out.println(response.toString());
+        System.out.print("###########################################################################################\n");
+        System.out.print("\n");
+        System.out.print("\n");
 
         return response.toString();
     }
