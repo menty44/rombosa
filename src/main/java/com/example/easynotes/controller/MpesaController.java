@@ -13,13 +13,11 @@ import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.util.Base64;
 import java.util.Collections;
 import java.util.Date;
 import java.util.Map;
@@ -111,16 +109,27 @@ public class MpesaController {
         con.setRequestProperty("Content-Type", "application/json");
         con.setRequestProperty("authorization", "Bearer " + a.authenticate());
 
-        SimpleDateFormat format = new SimpleDateFormat("YYYYMMDDHHmmss");
+        SimpleDateFormat format = new SimpleDateFormat("yyyyMMddhhmmss");
 
         String dateString = format.format(new Date());
         System.out.println(dateString);
 
+        String pass="174379"+"bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919"+dateString;
+        byte[] bytes = new byte[0];
+        try {
+            bytes = pass.getBytes("ISO-8859-1");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        String password = Base64.getEncoder().encodeToString(bytes);
+
         JSONArray jsonArray = new JSONArray();
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("BusinessShortCode", "174379");
-        jsonObject.put("Password", "MTc0Mzc5YmZiMjc5ZjlhYTliZGJjZjE1OGU5N2RkNzFhNDY3Y2QyZTBjODkzMDU5YjEwZjc4ZTZiNzJhZGExZWQyYzkxOTIwMTgwNzAzMDYyMDIy");
-        jsonObject.put("Timestamp", "20180703062022");
+//        jsonObject.put("Password", "MTc0Mzc5YmZiMjc5ZjlhYTliZGJjZjE1OGU5N2RkNzFhNDY3Y2QyZTBjODkzMDU5YjEwZjc4ZTZiNzJhZGExZWQyYzkxOTIwMTgwNzAzMDYyMDIy");
+        jsonObject.put("Password", password);
+//        jsonObject.put("Timestamp", "20180703062022");
+        jsonObject.put("Timestamp", dateString);
         jsonObject.put("TransactionType", "CustomerPayBillOnline");
         jsonObject.put("Amount", amount);
         jsonObject.put("PhoneNumber", number);

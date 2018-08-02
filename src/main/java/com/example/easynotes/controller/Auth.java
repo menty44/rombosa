@@ -46,7 +46,7 @@ public class Auth {
 //        String app_secret = appSecret;
         String app_secret = "PoxJvbGbT2f3gNno";
         //String appKeySecret = app_key + ":" + app_secret;
-        String appKeySecret = "Gxg0Thwl5rDAHh1swnXjMDCS836M8nIj" + ":" + "PoxJvbGbT2f3gNno";
+        String appKeySecret = "POfTeYoEKR74VCzWOZWWgkiGuuzZCBE5" + ":" + "sogG521aZacNA8OL";
         byte[] bytes = appKeySecret.getBytes("ISO-8859-1");
         String encoded = Base64.getEncoder().encodeToString(bytes);
 
