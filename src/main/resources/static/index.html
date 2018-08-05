@@ -8,14 +8,16 @@
         .navbar { border-radius:0; }
     </style>
 
+
+
     <!-- JS (load angular, ui-router, and our custom js file) -->
     <script src="http://code.angularjs.org/1.2.13/angular.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
     <script src="app.js"></script>
 </head>
 
 <!-- apply our angular app to our site -->
-<body ng-app="routerApp">
+<body ng-app="routerApp" ng-cloak>
 
 <!-- NAVIGATION -->
 <nav class="navbar navbar-inverse" role="navigation">
@@ -31,6 +33,7 @@
         <li><a ui-sref="dashboard">Dashboard</a></li>
         <li><a ui-sref="users">Users</a></li>
         <li><a ui-sref="profile">Profile</a></li>
+        <li><a ui-sref="payment">Payment</a></li>
         <li><a ui-sref="login">Login</a></li>
         <li><a ui-sref="register">Register</a></li>
     </ul>
