@@ -10,6 +10,7 @@ import com.example.easynotes.repository.MpesastkpushRepository;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -91,7 +92,7 @@ public class MpesaController {
     @CrossOrigin
     @RequestMapping(value = "mpesaworking", method = RequestMethod.GET, produces = "application/json")
     public String getRevo(@RequestParam(value = "number", defaultValue = "not available") String number,
-                          @RequestParam(value = "amount", defaultValue = "not available") String amount) throws IOException {
+                          @RequestParam(value = "amount", defaultValue = "not available") String amount) throws IOException, ParseException {
 
 
         Auth a = new Auth("GvzjNnYgNJtwgwfLBkZh65VPwfuKvs0V", "oOpJICRVlyrGSAkM");
@@ -129,7 +130,7 @@ public class MpesaController {
 //        jsonObject.put("Password", "MTc0Mzc5YmZiMjc5ZjlhYTliZGJjZjE1OGU5N2RkNzFhNDY3Y2QyZTBjODkzMDU5YjEwZjc4ZTZiNzJhZGExZWQyYzkxOTIwMTgwNzAzMDYyMDIy");
         jsonObject.put("Password", password);
 //        jsonObject.put("Timestamp", "20180703062022");
-        jsonObject.put("Timestamp", dateString);
+        jsonObject.put("Timestamp", "");
         jsonObject.put("TransactionType", "CustomerPayBillOnline");
         jsonObject.put("Amount", amount);
         jsonObject.put("PhoneNumber", number);
@@ -181,8 +182,8 @@ public class MpesaController {
         System.out.print("\n");
         System.out.print("\n");
 
-        try {
-            System.out.println("Reading JSON file from Java program\n");
+//        try {
+            System.out.println("Reading JSON file from MPESA \n");
             JSONParser parser = new JSONParser();
             JSONObject mystring = (JSONObject) parser.parse(response.toString());
 
@@ -192,28 +193,52 @@ public class MpesaController {
             String ResponseDescription = (String) mystring.get("ResponseDescription");
             String CustomerMessage = (String) mystring.get("CustomerMessage");
 
+            System.out.print("###################################### START MPESA STK PARSE #####################################################\n");
+            System.out.print("\n");
+            System.out.print("\n");
             System.out.println("MerchantRequestID: " + MerchantRequestID);
+            System.out.print("\n");
             System.out.println("CheckoutRequestID: " + CheckoutRequestID);
+            System.out.print("\n");
             System.out.println("ResponseCode: " + Integer.parseInt(ResponseCode));
+            System.out.print("\n");
             System.out.println("ResponseDescription: " + ResponseDescription);
+            System.out.print("\n");
             System.out.println("CustomerMessage: " + CustomerMessage);
+            System.out.print("\n");
+            System.out.print("###################################### END MPESA STK PARSE #####################################################\n");
 
-            MpesastkPush msp = new MpesastkPush();
 
-            msp.setMerchantrequestid(MerchantRequestID);
-            msp.setCheckoutrequestid(CheckoutRequestID);
-            msp.setResponsecode(Integer.parseInt(ResponseCode));
-            msp.setResponsedescription(ResponseDescription);
-            msp.setCustomermessage(CustomerMessage);
-            msp.setUserid(2882);
+            HttpURLConnection http = (HttpURLConnection) obj.openConnection();
+            int success = Integer.parseInt(ResponseCode);
+            int statusCode = http.getResponseCode();
+            System.out.print("The STATUS CODE "+ statusCode+ "\n");
 
-            msprepo.save(msp);
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        if(success == 0){
+                MpesastkPush msp = new MpesastkPush();
 
-        return response.toString();
+                msp.setMerchantrequestid(MerchantRequestID);
+                msp.setCheckoutrequestid(CheckoutRequestID);
+                msp.setResponsecode(Integer.parseInt(ResponseCode));
+                msp.setResponsedescription(ResponseDescription);
+                msp.setCustomermessage(CustomerMessage);
+                msp.setUserid(2882);
+
+                msprepo.save(msp);
+
+                return response.toString();
+            }else {
+
+                return "{\"fail\":1}";
+
+            }
+
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+
+//        return response.toString();
     }
 
     @CrossOrigin
@@ -275,10 +300,6 @@ public class MpesaController {
         System.out.print("\n");
         //printing result from response
         System.out.println(response);
-        System.out.print("###########################################################################################\n");
-        System.out.print("\n");
-        System.out.print("\n");
-        System.out.println(response.toString());
         System.out.print("###########################################################################################\n");
         System.out.print("\n");
         System.out.print("\n");

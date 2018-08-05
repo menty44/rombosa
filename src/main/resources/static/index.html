@@ -1,225 +1,51 @@
-<html ng-app="mainApp">
+<!DOCTYPE html>
+<html>
+<head>
 
-<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <!-- CSS (load bootstrap) -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <style>
+        .navbar { border-radius:0; }
+    </style>
 
-<link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
-<link rel="stylesheet" href="lib/ng-dialog/css/ngDialog.min.css">
-<link rel="stylesheet" href="lib/ng-dialog/css/ngDialog-theme-default.min.css">
+    <!-- JS (load angular, ui-router, and our custom js file) -->
+    <script src="http://code.angularjs.org/1.2.13/angular.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+    <script src="app.js"></script>
+</head>
 
-<script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<!-- apply our angular app to our site -->
+<body ng-app="routerApp">
 
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
-<!--<script src="//raw.githubusercontent.com/michaelbromley/angularUtils/master/src/directives/pagination/dirPagination.js"></script>-->
-<!--<script src="//raw.githubusercontent.com/michaelbromley/angularUtils/master/src/directives/pagination/dirPagination.js"></script>-->
-
-<!-- build:[src] //ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js -->
-<!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>-->
-<!-- /build -->
-<!-- build:[src] //ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js -->
-<!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>-->
-<!-- /build -->
-<!-- build:[src] //ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.min.js -->
-<!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.min.js"></script>-->
-<!-- /build -->
-<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>-->
-<!-- build:[src] //ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-cookies.min.js -->
-<!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-cookies.min.js"></script>-->
-<!-- /build -->
-
-<!--<script src="//cdn.rawgit.com/jpillora/xdomain/0.7.4/dist/xdomain.min.js"></script>-->
-
-<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-
-<!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>-->
-<!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>-->
-
-<!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>-->
-<!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-cookies.min.js"></script>-->
-
-<!-- build:[src] //ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js -->
-<!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>-->
-
-<!-- /build -->
-<!-- build:[src] //ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.min.js -->
-<!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.min.js"></script>-->
-
-<!-- /build -->
-<!-- build:[src] //ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-cookies.min.js -->
-<!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-cookies.min.js"></script>-->
-
-<!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-cookies.min.js"></script>-->
-
-<script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.3/dist/loadingoverlay.min.js"></script>
-<!--<link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.9.0/loading-bar.min.css' type='text/css' media='all' />-->
-
-<link href="http://cdn.phpoll.com/css/animate.css" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
-
-<title>AfroBoot</title>
-
-<body>
-
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="">Afroboot</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse" >
-            <ul class="nav navbar-nav">
-                <!--<li><a href="">{{nav.name}}</a></li>-->
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#!photos">Photos</a></li>
-                <li><a href="">Twerk Clips</a></li>
-                <li><a href="#!leaked">Leaked</a></li>
-                <li><a href="">Uncensored</a></li>
-                <li><a href="#!upload">Upload</a></li>
-                <!--<li><a href="">Hookup</a></li>-->
-            </ul>
-
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="http://phpoll.com/register" class="dropdown-toggle" data-toggle="dropdown">Register <span class="caret"></span></a>
-                    <ul class="dropdown-menu dropdown-lr animated flipInX" role="menu">
-                        <div class="col-lg-12">
-                            <div class="text-center">
-                                <h3><b>Register</b></h3></div>
-                            <form id="ajax-register-form" action="http://phpoll.com/register/process" method="post" role="form" autocomplete="off">
-                                <div class="form-group">
-                                    <label for="email">First Name</label>
-                                    <input type="text" name="firstname" id="firstname" tabindex="1" class="form-control" placeholder="firstname" value="">
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Last Name</label>
-                                    <input type="text" name="lastname" id="lastname" tabindex="1" class="form-control" placeholder="lastname" value="">
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Mobile</label>
-                                    <input type="text" name="mobile" id="mobile" tabindex="1" class="form-control" placeholder="mobile" value="">
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Password</label>
-                                    <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-xs-6 col-xs-offset-3">
-                                            <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-info" value="Register Now">
-                                        </div>
-                                    </div>
-                                </div>
-                                <input type="hidden" class="hide" name="token" id="token" value="7c6f19960d63f53fcd05c3e0cbc434c0">
-                            </form>
-                        </div>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="http://phpoll.com/login" class="dropdown-toggle" data-toggle="dropdown">Log In <span class="caret"></span></a>
-                    <ul class="dropdown-menu dropdown-lr animated slideInRight" role="menu">
-                        <div class="col-lg-12">
-                            <div class="text-center">
-                                <h3><b>Log In</b></h3></div>
-                            <form id="ajax-login-form" action="http://phpoll.com/login/process" method="post" role="form" autocomplete="off">
-                                <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="text" name="email" id="email" tabindex="1" class="form-control" placeholder="email" value="" autocomplete="off">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="password">Password</label>
-                                    <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" autocomplete="off">
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-xs-7">
-                                            <input type="checkbox" tabindex="3" name="remember" id="remember">
-                                            <label for="remember"> Remember Me</label>
-                                        </div>
-                                        <div class="col-xs-5 pull-right">
-                                            <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-success" value="Log In">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <div class="text-center">
-                                                <a href="http://phpoll.com/recover" tabindex="5" class="forgot-password">Forgot Password?</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <input type="hidden" class="hide" name="token" id="token" value="a465a2791ae0bae853cf4bf485dbe1b6">
-                            </form>
-                        </div>
-                    </ul>
-                </li>
-            </ul>
-
-        </div>
+<!-- NAVIGATION -->
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="navbar-header">
+        <a class="navbar-brand" ui-sref="/">Afroboot</a>
     </div>
+    <ul class="nav navbar-nav">
+        <li><a ui-sref="home">Home</a></li>
+        <li><a ui-sref="about">About</a></li>
+        <li><a ui-sref="videos">Clips</a></li>
+        <li><a ui-sref="photos">Photos</a></li>
+        <li><a ui-sref="uncensored">Uncensored</a></li>
+        <li><a ui-sref="dashboard">Dashboard</a></li>
+        <li><a ui-sref="users">Users</a></li>
+        <li><a ui-sref="profile">Profile</a></li>
+        <li><a ui-sref="login">Login</a></li>
+        <li><a ui-sref="register">Register</a></li>
+    </ul>
 </nav>
 
-<div class="col-md-2">
-    left side
+<!-- MAIN CONTENT -->
+<!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
+<div class="container">
+    <div ui-view></div>
 </div>
 
-<div class="col-md-8">
-    <div ng-controller="fredCtrl" ng-init="categories()">
-
-        <ul class="nav navbar-nav" ng-repeat="nav in navbar">
-            <li class="active"><a href="#!">{{nav.name}}</a></li>
-
-        </ul>
-    </div>
+<div class="text-center">
+    <p>A tutorial by <a href="http://scotch.io" target="_blank">scotch.io</a></p>
+    <p>View the tutorial: <a href="http://scotch.io/tutorials/javascript/angular-routing-using-ui-router" target="_blank">AngularJS Routing using UI-Router</a></p>
 </div>
-
-<div class="col-md-2">
-    right side
-</div>
-
-
-<script>
-
-</script>
-<!--<script src="index.js"></script>-->
-<script>
-
-    var app = angular.module("mainApp", ["ngRoute"]);
-    app.config(function($routeProvider) {
-        $routeProvider
-                .when("/", {
-                    templateUrl : "index.html"
-                })
-                .when("/photos", {
-                    templateUrl : "photos.html"
-                })
-                .when("/upload", {
-                    templateUrl : "upload.html"
-                })
-                .when("/leaked", {
-                    templateUrl : "leaked.html"
-                });
-    });
-</script>
-<!--<script src="js/routes.js"></script>-->
-
-<script src="js/categories.js"></script>
 
 </body>
-
 </html>
