@@ -1076,3 +1076,15 @@ Caused by: java.sql.SQLFeatureNotSupportedException: Method org.postgresql.jdbc.
 2018-08-06 00:56:53.794  INFO 11520 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
 2018-08-06 00:56:53.801  INFO 11520 --- [restartedMain] c.e.easynotes.EasyNotesApplication       : Started EasyNotesApplication in 23.835 seconds (JVM running for 25.541)
 2018-08-06 00:57:00.800  INFO 11520 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-08-06 01:09:46.017  WARN 11520 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10m5s46ms).
+2018-08-06 03:21:21.017  WARN 11520 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h4s922ms).
+2018-08-06 05:22:08.010  WARN 11520 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h16s987ms).
+2018-08-06 05:59:29.013  WARN 11520 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=36m50s992ms).
+2018-08-06 21:12:13.015  WARN 11520 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=14h15m13s537ms).
+2018-08-06 21:31:26.005  WARN 11520 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m10s132ms).
+2018-08-06 21:39:19.406  INFO 11520 --- [Thread-10] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@9d01595: startup date [Mon Aug 06 00:56:32 EAT 2018]; root of context hierarchy
+2018-08-06 21:39:19.459  INFO 11520 --- [Thread-10] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-08-06 21:39:19.467  INFO 11520 --- [Thread-10] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
+2018-08-06 21:39:19.474  INFO 11520 --- [Thread-10] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-08-06 21:39:19.480  INFO 11520 --- [Thread-10] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-08-06 21:39:19.489  INFO 11520 --- [Thread-10] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
