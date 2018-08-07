@@ -11,31 +11,40 @@ package com.example.easynotes.model;
  * email: menty44@gmail.com
  */
 
-import com.sun.istack.internal.NotNull;
+//import com.sun.istack.internal.NotNull;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "posts")
-public class Post {
+public class Post extends AuditModel{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
+    @NotBlank
     @Size(max = 100)
     @Column(unique = true)
     private String title;
 
-    @NotNull
+    @NotBlank
     @Size(max = 250)
     private String description;
 
-    @NotNull
+    @NotBlank
     @Lob
     private String content;
+
+
+    @OneToMany(cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY,
+            mappedBy = "post")
+    private Set<Comment> comments = new HashSet<>();
 
     //empty default constructor
     public Post() {
@@ -73,5 +82,14 @@ public class Post {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+
+    public Set<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(Set<Comment> comments) {
+        this.comments = comments;
     }
 }

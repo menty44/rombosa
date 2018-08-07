@@ -64,3 +64,17 @@ You can test them using postman or any other rest client.
 You can find the tutorial for this application on my blog -
 
 <https://www.callicoder.com/spring-boot-rest-api-tutorial-with-mysql-jpa-hibernate/>
+
+##Many to one relationship
+https://www.callicoder.com/hibernate-spring-boot-jpa-one-to-many-mapping-example/
+
+Create Post POST /posts
+
+Get paginated Posts GET /posts?page=0&size=2&sort=createdAt,desc
+
+Create Comment POST /posts/{postId}/comments
+
+Get paginated comments GET /posts/{postId}/comments?page=0&size=3&sort=createdAt,desc
+
+
+
