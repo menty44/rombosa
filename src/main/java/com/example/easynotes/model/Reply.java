@@ -18,12 +18,10 @@ import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name = "comments")
-public class Comment extends AuditModel{
+public class Reply extends AuditModel{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,22 +33,10 @@ public class Comment extends AuditModel{
 
     //this is the join between the post and the comment object i.e one post has many comments
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "post_id", nullable = false)
+    @JoinColumn(name = "comment_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
-    private Post post;
-
-
-    //trying to map a comment can have many replies
-//    @OneToMany(cascade = CascadeType.ALL,
-//            fetch = FetchType.LAZY,
-//            mappedBy = "comment")
-//    private Set<Reply> replies = new HashSet<>();
-
-    @OneToMany(mappedBy="comment")
-    private Set<Reply> replies = new HashSet<>();
-
-
+    private Comment comment;
 
     //getters and setters
     public Long getId() {
@@ -69,20 +55,11 @@ public class Comment extends AuditModel{
         this.text = text;
     }
 
-    public Post getPost() {
-        return post;
+    public Comment getComment() {
+        return comment;
     }
 
-    public void setPost(Post post) {
-        this.post = post;
-    }
-
-
-    public Set<Reply> getReplies() {
-        return replies;
-    }
-
-    public void setReplies(Set<Reply> replies) {
-        this.replies = replies;
+    public void setComment(Comment comment) {
+        this.comment = comment;
     }
 }
