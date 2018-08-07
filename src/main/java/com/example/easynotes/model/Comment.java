@@ -28,7 +28,7 @@ public class Comment extends AuditModel{
     private Long id;
 
     @NotBlank
-    @Lob
+    //@Lob
     private String text;
 
     //this is the join between the post and the comment object i.e one post has many comments

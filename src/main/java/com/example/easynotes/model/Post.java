@@ -37,7 +37,7 @@ public class Post extends AuditModel{
     private String description;
 
     @NotBlank
-    @Lob
+    ////@Lob
     private String content;
 
 
