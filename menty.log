@@ -1,140 +1,150 @@
-2018-08-08 22:44:36.127  INFO 53369 --- [restartedMain] c.e.easynotes.EasyNotesApplication       : Starting EasyNotesApplication on Admins-MacBook-Pro.local with PID 53369 (/Users/admin/Documents/afroboot/target/classes started by admin in /Users/admin/Documents/afroboot)
-2018-08-08 22:44:36.159  INFO 53369 --- [restartedMain] c.e.easynotes.EasyNotesApplication       : No active profile set, falling back to default profiles: default
-2018-08-08 22:44:36.701  INFO 53369 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@a76dfc9: startup date [Wed Aug 08 22:44:36 EAT 2018]; root of context hierarchy
-2018-08-08 22:44:42.734  INFO 53369 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$1e230f8f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2018-08-08 22:44:43.917  INFO 53369 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2018-08-08 22:44:44.029  INFO 53369 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2018-08-08 22:44:44.030  INFO 53369 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.28
-2018-08-08 22:44:44.087  INFO 53369 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/admin/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
-2018-08-08 22:44:44.450  INFO 53369 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2018-08-08 22:44:44.769  INFO 53369 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
-2018-08-08 22:44:44.795  INFO 53369 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
-2018-08-08 22:44:44.796  INFO 53369 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
-2018-08-08 22:44:44.797  INFO 53369 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
-2018-08-08 22:44:44.797  INFO 53369 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
-2018-08-08 22:44:45.626  INFO 53369 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2018-08-08 22:44:45.949  INFO 53369 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2018-08-08 22:44:46.193  INFO 53369 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
-2018-08-08 22:44:46.285  INFO 53369 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+2018-08-12 01:01:32.027  WARN 53369 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1d17h42m321ms).
+2018-08-12 03:36:15.010  WARN 53369 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h9s3ms).
+2018-08-12 05:37:02.009  WARN 53369 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h16s994ms).
+2018-08-12 07:16:41.006  WARN 53369 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h39m8s988ms).
+2018-08-12 13:16:59.538  INFO 53369 --- [Thread-10] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@a76dfc9: startup date [Wed Aug 08 22:44:36 EAT 2018]; root of context hierarchy
+2018-08-12 13:16:59.561  INFO 53369 --- [Thread-10] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-08-12 13:16:59.563  INFO 53369 --- [Thread-10] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
+2018-08-12 13:16:59.571  INFO 53369 --- [Thread-10] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-08-12 13:16:59.582  INFO 53369 --- [Thread-10] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-08-12 13:16:59.595  INFO 53369 --- [Thread-10] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2018-08-12 13:17:54.065  INFO 75736 --- [restartedMain] c.e.easynotes.EasyNotesApplication       : Starting EasyNotesApplication on Admins-MacBook-Pro.local with PID 75736 (/Users/admin/Documents/afroboot/target/classes started by admin in /Users/admin/Documents/afroboot)
+2018-08-12 13:17:54.066  INFO 75736 --- [restartedMain] c.e.easynotes.EasyNotesApplication       : No active profile set, falling back to default profiles: default
+2018-08-12 13:17:54.197  INFO 75736 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@4c6740e1: startup date [Sun Aug 12 13:17:54 EAT 2018]; root of context hierarchy
+2018-08-12 13:17:56.819  INFO 75736 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$262a0cde] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-08-12 13:17:57.533  INFO 75736 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-08-12 13:17:57.592  INFO 75736 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-08-12 13:17:57.593  INFO 75736 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.28
+2018-08-12 13:17:57.619  INFO 75736 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/admin/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2018-08-12 13:17:57.813  INFO 75736 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-08-12 13:17:58.098  INFO 75736 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-08-12 13:17:58.111  INFO 75736 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-08-12 13:17:58.113  INFO 75736 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-08-12 13:17:58.114  INFO 75736 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-08-12 13:17:58.114  INFO 75736 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-08-12 13:17:58.644  INFO 75736 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-08-12 13:17:58.826  INFO 75736 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-08-12 13:17:58.934  INFO 75736 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-08-12 13:17:58.975  INFO 75736 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
 	name: default
 	...]
-2018-08-08 22:44:46.573  INFO 53369 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.2.14.Final}
-2018-08-08 22:44:46.580  INFO 53369 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
-2018-08-08 22:44:46.745  INFO 53369 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
-2018-08-08 22:44:46.931 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration boolean -> org.hibernate.type.BooleanType@767f6c59
-2018-08-08 22:44:46.931 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration boolean -> org.hibernate.type.BooleanType@767f6c59
-2018-08-08 22:44:46.932 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Boolean -> org.hibernate.type.BooleanType@767f6c59
-2018-08-08 22:44:46.934 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration numeric_boolean -> org.hibernate.type.NumericBooleanType@321fafd1
-2018-08-08 22:44:46.938 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration true_false -> org.hibernate.type.TrueFalseType@580042aa
-2018-08-08 22:44:46.956 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration yes_no -> org.hibernate.type.YesNoType@b0bf21f
-2018-08-08 22:44:46.961 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration byte -> org.hibernate.type.ByteType@8e6ede0
-2018-08-08 22:44:46.962 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration byte -> org.hibernate.type.ByteType@8e6ede0
-2018-08-08 22:44:46.963 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Byte -> org.hibernate.type.ByteType@8e6ede0
-2018-08-08 22:44:46.985 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration character -> org.hibernate.type.CharacterType@28120c7d
-2018-08-08 22:44:46.986 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration char -> org.hibernate.type.CharacterType@28120c7d
-2018-08-08 22:44:46.989 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Character -> org.hibernate.type.CharacterType@28120c7d
-2018-08-08 22:44:46.995 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration short -> org.hibernate.type.ShortType@7b0e7e23
-2018-08-08 22:44:46.995 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration short -> org.hibernate.type.ShortType@7b0e7e23
-2018-08-08 22:44:47.001 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Short -> org.hibernate.type.ShortType@7b0e7e23
-2018-08-08 22:44:47.007 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration integer -> org.hibernate.type.IntegerType@ebe51ca
-2018-08-08 22:44:47.007 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration int -> org.hibernate.type.IntegerType@ebe51ca
-2018-08-08 22:44:47.008 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Integer -> org.hibernate.type.IntegerType@ebe51ca
-2018-08-08 22:44:47.012 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration long -> org.hibernate.type.LongType@86fa1be
-2018-08-08 22:44:47.013 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration long -> org.hibernate.type.LongType@86fa1be
-2018-08-08 22:44:47.020 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Long -> org.hibernate.type.LongType@86fa1be
-2018-08-08 22:44:47.026 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration float -> org.hibernate.type.FloatType@6a52d2a0
-2018-08-08 22:44:47.026 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration float -> org.hibernate.type.FloatType@6a52d2a0
-2018-08-08 22:44:47.026 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Float -> org.hibernate.type.FloatType@6a52d2a0
-2018-08-08 22:44:47.029 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration double -> org.hibernate.type.DoubleType@4691643b
-2018-08-08 22:44:47.030 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration double -> org.hibernate.type.DoubleType@4691643b
-2018-08-08 22:44:47.033 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Double -> org.hibernate.type.DoubleType@4691643b
-2018-08-08 22:44:47.037 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration big_decimal -> org.hibernate.type.BigDecimalType@3dd9789e
-2018-08-08 22:44:47.037 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.math.BigDecimal -> org.hibernate.type.BigDecimalType@3dd9789e
-2018-08-08 22:44:47.039 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration big_integer -> org.hibernate.type.BigIntegerType@82272f0
-2018-08-08 22:44:47.039 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.math.BigInteger -> org.hibernate.type.BigIntegerType@82272f0
-2018-08-08 22:44:47.041 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration string -> org.hibernate.type.StringType@20fb00f2
-2018-08-08 22:44:47.041 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.String -> org.hibernate.type.StringType@20fb00f2
-2018-08-08 22:44:47.043 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration nstring -> org.hibernate.type.StringNVarcharType@21cf3feb
-2018-08-08 22:44:47.045 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration ncharacter -> org.hibernate.type.CharacterNCharType@21a43345
-2018-08-08 22:44:47.056 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration url -> org.hibernate.type.UrlType@771121c4
-2018-08-08 22:44:47.057 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.net.URL -> org.hibernate.type.UrlType@771121c4
-2018-08-08 22:44:47.060 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration Duration -> org.hibernate.type.DurationType@3c4b4d96
-2018-08-08 22:44:47.060 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.Duration -> org.hibernate.type.DurationType@3c4b4d96
-2018-08-08 22:44:47.068 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration Instant -> org.hibernate.type.InstantType@18399c6e
-2018-08-08 22:44:47.068 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.Instant -> org.hibernate.type.InstantType@18399c6e
-2018-08-08 22:44:47.070 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration LocalDateTime -> org.hibernate.type.LocalDateTimeType@38bc0ee4
-2018-08-08 22:44:47.070 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.LocalDateTime -> org.hibernate.type.LocalDateTimeType@38bc0ee4
-2018-08-08 22:44:47.076 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration LocalDate -> org.hibernate.type.LocalDateType@a6380b2
-2018-08-08 22:44:47.076 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.LocalDate -> org.hibernate.type.LocalDateType@a6380b2
-2018-08-08 22:44:47.083 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration LocalTime -> org.hibernate.type.LocalTimeType@6c0c213a
-2018-08-08 22:44:47.084 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.LocalTime -> org.hibernate.type.LocalTimeType@6c0c213a
-2018-08-08 22:44:47.087 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetDateTime -> org.hibernate.type.OffsetDateTimeType@555ba104
-2018-08-08 22:44:47.087 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.OffsetDateTime -> org.hibernate.type.OffsetDateTimeType@555ba104
-2018-08-08 22:44:47.089 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetTime -> org.hibernate.type.OffsetTimeType@77568497
-2018-08-08 22:44:47.090 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.OffsetTime -> org.hibernate.type.OffsetTimeType@77568497
-2018-08-08 22:44:47.093 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration ZonedDateTime -> org.hibernate.type.ZonedDateTimeType@410f824
-2018-08-08 22:44:47.094 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.ZonedDateTime -> org.hibernate.type.ZonedDateTimeType@410f824
-2018-08-08 22:44:47.098 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration date -> org.hibernate.type.DateType@6aaeed69
-2018-08-08 22:44:47.098 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Date -> org.hibernate.type.DateType@6aaeed69
-2018-08-08 22:44:47.100 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration time -> org.hibernate.type.TimeType@3ddb0be4
-2018-08-08 22:44:47.111 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Time -> org.hibernate.type.TimeType@3ddb0be4
-2018-08-08 22:44:47.132 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration timestamp -> org.hibernate.type.TimestampType@788d610b
-2018-08-08 22:44:47.139 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Timestamp -> org.hibernate.type.TimestampType@788d610b
-2018-08-08 22:44:47.141 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Date -> org.hibernate.type.TimestampType@788d610b
-2018-08-08 22:44:47.145 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration dbtimestamp -> org.hibernate.type.DbTimestampType@70fe3cbf
-2018-08-08 22:44:47.151 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration calendar -> org.hibernate.type.CalendarType@24897c66
-2018-08-08 22:44:47.152 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Calendar -> org.hibernate.type.CalendarType@24897c66
-2018-08-08 22:44:47.152 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.GregorianCalendar -> org.hibernate.type.CalendarType@24897c66
-2018-08-08 22:44:47.153 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration calendar_date -> org.hibernate.type.CalendarDateType@247756ba
-2018-08-08 22:44:47.155 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration locale -> org.hibernate.type.LocaleType@5ec61bbd
-2018-08-08 22:44:47.156 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Locale -> org.hibernate.type.LocaleType@5ec61bbd
-2018-08-08 22:44:47.158 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration currency -> org.hibernate.type.CurrencyType@4313deb4
-2018-08-08 22:44:47.158 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Currency -> org.hibernate.type.CurrencyType@4313deb4
-2018-08-08 22:44:47.160 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration timezone -> org.hibernate.type.TimeZoneType@4b67ba50
-2018-08-08 22:44:47.160 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.TimeZone -> org.hibernate.type.TimeZoneType@4b67ba50
-2018-08-08 22:44:47.177 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration class -> org.hibernate.type.ClassType@e377377
-2018-08-08 22:44:47.177 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Class -> org.hibernate.type.ClassType@e377377
-2018-08-08 22:44:47.190 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration uuid-binary -> org.hibernate.type.UUIDBinaryType@355ffbb
-2018-08-08 22:44:47.190 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.UUID -> org.hibernate.type.UUIDBinaryType@355ffbb
-2018-08-08 22:44:47.194 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration uuid-char -> org.hibernate.type.UUIDCharType@3ac05966
-2018-08-08 22:44:47.199 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration binary -> org.hibernate.type.BinaryType@de5e578
-2018-08-08 22:44:47.199 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration byte[] -> org.hibernate.type.BinaryType@de5e578
-2018-08-08 22:44:47.199 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration [B -> org.hibernate.type.BinaryType@de5e578
-2018-08-08 22:44:47.201 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration wrapper-binary -> org.hibernate.type.WrapperBinaryType@2f8211f
-2018-08-08 22:44:47.201 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration Byte[] -> org.hibernate.type.WrapperBinaryType@2f8211f
-2018-08-08 22:44:47.205 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration [Ljava.lang.Byte; -> org.hibernate.type.WrapperBinaryType@2f8211f
-2018-08-08 22:44:47.207 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration row_version -> org.hibernate.type.RowVersionType@32bb08ed
-2018-08-08 22:44:47.210 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration image -> org.hibernate.type.ImageType@1d833eae
-2018-08-08 22:44:47.211 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration characters -> org.hibernate.type.CharArrayType@637fc3bb
-2018-08-08 22:44:47.211 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration char[] -> org.hibernate.type.CharArrayType@637fc3bb
-2018-08-08 22:44:47.212 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration [C -> org.hibernate.type.CharArrayType@637fc3bb
-2018-08-08 22:44:47.215 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration wrapper-characters -> org.hibernate.type.CharacterArrayType@1a38db88
-2018-08-08 22:44:47.216 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration [Ljava.lang.Character; -> org.hibernate.type.CharacterArrayType@1a38db88
-2018-08-08 22:44:47.217 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration Character[] -> org.hibernate.type.CharacterArrayType@1a38db88
-2018-08-08 22:44:47.218 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration text -> org.hibernate.type.TextType@7645b7ca
-2018-08-08 22:44:47.220 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration ntext -> org.hibernate.type.NTextType@4c7c33a5
-2018-08-08 22:44:47.228 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration blob -> org.hibernate.type.BlobType@29c5f21e
-2018-08-08 22:44:47.228 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Blob -> org.hibernate.type.BlobType@29c5f21e
-2018-08-08 22:44:47.229 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_blob -> org.hibernate.type.MaterializedBlobType@dc8f93b
-2018-08-08 22:44:47.240 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration clob -> org.hibernate.type.ClobType@1eeef601
-2018-08-08 22:44:47.240 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Clob -> org.hibernate.type.ClobType@1eeef601
-2018-08-08 22:44:47.244 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration nclob -> org.hibernate.type.NClobType@61d9d0c
-2018-08-08 22:44:47.245 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.NClob -> org.hibernate.type.NClobType@61d9d0c
-2018-08-08 22:44:47.245 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_clob -> org.hibernate.type.MaterializedClobType@25f5e0a6
-2018-08-08 22:44:47.246 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_nclob -> org.hibernate.type.MaterializedNClobType@375a9daf
-2018-08-08 22:44:47.323 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration serializable -> org.hibernate.type.SerializableType@93b4cbf
-2018-08-08 22:44:47.328 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration object -> org.hibernate.type.ObjectType@2da54996
-2018-08-08 22:44:47.329 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Object -> org.hibernate.type.ObjectType@2da54996
-2018-08-08 22:44:47.330 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_date -> org.hibernate.type.AdaptedImmutableType@3d5d5ee4
-2018-08-08 22:44:47.330 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_time -> org.hibernate.type.AdaptedImmutableType@3a334920
-2018-08-08 22:44:47.331 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_timestamp -> org.hibernate.type.AdaptedImmutableType@7c80a4be
-2018-08-08 22:44:47.331 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_dbtimestamp -> org.hibernate.type.AdaptedImmutableType@3d0eb393
-2018-08-08 22:44:47.331 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_calendar -> org.hibernate.type.AdaptedImmutableType@6a7360a8
-2018-08-08 22:44:47.331 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_calendar_date -> org.hibernate.type.AdaptedImmutableType@4a294e8f
-2018-08-08 22:44:47.332 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_binary -> org.hibernate.type.AdaptedImmutableType@33f5a620
-2018-08-08 22:44:47.332 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_serializable -> org.hibernate.type.AdaptedImmutableType@7b2f09e6
-2018-08-08 22:44:47.420  INFO 53369 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2018-08-08 22:44:47.669  INFO 53369 --- [restartedMain] o.h.e.j.e.i.LobCreatorBuilderImpl        : HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2018-08-12 13:17:59.145  INFO 75736 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.2.14.Final}
+2018-08-12 13:17:59.147  INFO 75736 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-08-12 13:17:59.226  INFO 75736 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-08-12 13:17:59.349 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration boolean -> org.hibernate.type.BooleanType@2037edc5
+2018-08-12 13:17:59.349 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration boolean -> org.hibernate.type.BooleanType@2037edc5
+2018-08-12 13:17:59.349 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Boolean -> org.hibernate.type.BooleanType@2037edc5
+2018-08-12 13:17:59.351 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration numeric_boolean -> org.hibernate.type.NumericBooleanType@13429623
+2018-08-12 13:17:59.352 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration true_false -> org.hibernate.type.TrueFalseType@24f4d08f
+2018-08-12 13:17:59.354 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration yes_no -> org.hibernate.type.YesNoType@280f8fb7
+2018-08-12 13:17:59.356 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration byte -> org.hibernate.type.ByteType@2378adeb
+2018-08-12 13:17:59.356 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration byte -> org.hibernate.type.ByteType@2378adeb
+2018-08-12 13:17:59.357 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Byte -> org.hibernate.type.ByteType@2378adeb
+2018-08-12 13:17:59.358 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration character -> org.hibernate.type.CharacterType@70d3ac73
+2018-08-12 13:17:59.359 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration char -> org.hibernate.type.CharacterType@70d3ac73
+2018-08-12 13:17:59.359 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Character -> org.hibernate.type.CharacterType@70d3ac73
+2018-08-12 13:17:59.361 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration short -> org.hibernate.type.ShortType@2af6c3e1
+2018-08-12 13:17:59.361 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration short -> org.hibernate.type.ShortType@2af6c3e1
+2018-08-12 13:17:59.362 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Short -> org.hibernate.type.ShortType@2af6c3e1
+2018-08-12 13:17:59.370 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration integer -> org.hibernate.type.IntegerType@c3461d9
+2018-08-12 13:17:59.371 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration int -> org.hibernate.type.IntegerType@c3461d9
+2018-08-12 13:17:59.379 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Integer -> org.hibernate.type.IntegerType@c3461d9
+2018-08-12 13:17:59.382 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration long -> org.hibernate.type.LongType@7857ae0b
+2018-08-12 13:17:59.382 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration long -> org.hibernate.type.LongType@7857ae0b
+2018-08-12 13:17:59.383 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Long -> org.hibernate.type.LongType@7857ae0b
+2018-08-12 13:17:59.386 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration float -> org.hibernate.type.FloatType@11c8cbca
+2018-08-12 13:17:59.387 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration float -> org.hibernate.type.FloatType@11c8cbca
+2018-08-12 13:17:59.387 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Float -> org.hibernate.type.FloatType@11c8cbca
+2018-08-12 13:17:59.389 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration double -> org.hibernate.type.DoubleType@3454306d
+2018-08-12 13:17:59.390 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration double -> org.hibernate.type.DoubleType@3454306d
+2018-08-12 13:17:59.390 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Double -> org.hibernate.type.DoubleType@3454306d
+2018-08-12 13:17:59.393 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration big_decimal -> org.hibernate.type.BigDecimalType@5b97e63a
+2018-08-12 13:17:59.394 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.math.BigDecimal -> org.hibernate.type.BigDecimalType@5b97e63a
+2018-08-12 13:17:59.396 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration big_integer -> org.hibernate.type.BigIntegerType@56b56435
+2018-08-12 13:17:59.399 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.math.BigInteger -> org.hibernate.type.BigIntegerType@56b56435
+2018-08-12 13:17:59.403 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration string -> org.hibernate.type.StringType@677c77d0
+2018-08-12 13:17:59.404 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.String -> org.hibernate.type.StringType@677c77d0
+2018-08-12 13:17:59.406 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration nstring -> org.hibernate.type.StringNVarcharType@570ad3ef
+2018-08-12 13:17:59.407 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration ncharacter -> org.hibernate.type.CharacterNCharType@33891517
+2018-08-12 13:17:59.409 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration url -> org.hibernate.type.UrlType@1d38ee77
+2018-08-12 13:17:59.409 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.net.URL -> org.hibernate.type.UrlType@1d38ee77
+2018-08-12 13:17:59.411 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration Duration -> org.hibernate.type.DurationType@3539425e
+2018-08-12 13:17:59.411 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.Duration -> org.hibernate.type.DurationType@3539425e
+2018-08-12 13:17:59.416 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration Instant -> org.hibernate.type.InstantType@73192a20
+2018-08-12 13:17:59.417 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.Instant -> org.hibernate.type.InstantType@73192a20
+2018-08-12 13:17:59.419 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration LocalDateTime -> org.hibernate.type.LocalDateTimeType@6c0cd954
+2018-08-12 13:17:59.452 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.LocalDateTime -> org.hibernate.type.LocalDateTimeType@6c0cd954
+2018-08-12 13:17:59.454 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration LocalDate -> org.hibernate.type.LocalDateType@38486bfc
+2018-08-12 13:17:59.455 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.LocalDate -> org.hibernate.type.LocalDateType@38486bfc
+2018-08-12 13:17:59.457 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration LocalTime -> org.hibernate.type.LocalTimeType@70440581
+2018-08-12 13:17:59.458 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.LocalTime -> org.hibernate.type.LocalTimeType@70440581
+2018-08-12 13:17:59.460 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetDateTime -> org.hibernate.type.OffsetDateTimeType@29cc3537
+2018-08-12 13:17:59.460 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.OffsetDateTime -> org.hibernate.type.OffsetDateTimeType@29cc3537
+2018-08-12 13:17:59.462 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetTime -> org.hibernate.type.OffsetTimeType@36f359ad
+2018-08-12 13:17:59.462 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.OffsetTime -> org.hibernate.type.OffsetTimeType@36f359ad
+2018-08-12 13:17:59.469 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration ZonedDateTime -> org.hibernate.type.ZonedDateTimeType@72d836c1
+2018-08-12 13:17:59.469 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.ZonedDateTime -> org.hibernate.type.ZonedDateTimeType@72d836c1
+2018-08-12 13:17:59.472 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration date -> org.hibernate.type.DateType@7e808134
+2018-08-12 13:17:59.472 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Date -> org.hibernate.type.DateType@7e808134
+2018-08-12 13:17:59.474 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration time -> org.hibernate.type.TimeType@7aaf1e59
+2018-08-12 13:17:59.474 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Time -> org.hibernate.type.TimeType@7aaf1e59
+2018-08-12 13:17:59.476 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration timestamp -> org.hibernate.type.TimestampType@6efc25c3
+2018-08-12 13:17:59.477 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Timestamp -> org.hibernate.type.TimestampType@6efc25c3
+2018-08-12 13:17:59.477 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Date -> org.hibernate.type.TimestampType@6efc25c3
+2018-08-12 13:17:59.479 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration dbtimestamp -> org.hibernate.type.DbTimestampType@5cc500fc
+2018-08-12 13:17:59.482 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration calendar -> org.hibernate.type.CalendarType@380a4359
+2018-08-12 13:17:59.513 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Calendar -> org.hibernate.type.CalendarType@380a4359
+2018-08-12 13:17:59.514 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.GregorianCalendar -> org.hibernate.type.CalendarType@380a4359
+2018-08-12 13:17:59.516 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration calendar_date -> org.hibernate.type.CalendarDateType@2d04b160
+2018-08-12 13:17:59.518 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration locale -> org.hibernate.type.LocaleType@272c9512
+2018-08-12 13:17:59.518 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Locale -> org.hibernate.type.LocaleType@272c9512
+2018-08-12 13:17:59.519 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration currency -> org.hibernate.type.CurrencyType@6af7d75f
+2018-08-12 13:17:59.520 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Currency -> org.hibernate.type.CurrencyType@6af7d75f
+2018-08-12 13:17:59.521 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration timezone -> org.hibernate.type.TimeZoneType@127bf525
+2018-08-12 13:17:59.521 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.TimeZone -> org.hibernate.type.TimeZoneType@127bf525
+2018-08-12 13:17:59.523 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration class -> org.hibernate.type.ClassType@6a7388d
+2018-08-12 13:17:59.523 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Class -> org.hibernate.type.ClassType@6a7388d
+2018-08-12 13:17:59.525 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration uuid-binary -> org.hibernate.type.UUIDBinaryType@7a7e1364
+2018-08-12 13:17:59.525 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.UUID -> org.hibernate.type.UUIDBinaryType@7a7e1364
+2018-08-12 13:17:59.526 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration uuid-char -> org.hibernate.type.UUIDCharType@1375c142
+2018-08-12 13:17:59.528 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration binary -> org.hibernate.type.BinaryType@2c507979
+2018-08-12 13:17:59.529 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration byte[] -> org.hibernate.type.BinaryType@2c507979
+2018-08-12 13:17:59.529 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration [B -> org.hibernate.type.BinaryType@2c507979
+2018-08-12 13:17:59.533 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration wrapper-binary -> org.hibernate.type.WrapperBinaryType@7ae1703b
+2018-08-12 13:17:59.533 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration Byte[] -> org.hibernate.type.WrapperBinaryType@7ae1703b
+2018-08-12 13:17:59.534 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration [Ljava.lang.Byte; -> org.hibernate.type.WrapperBinaryType@7ae1703b
+2018-08-12 13:17:59.538 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration row_version -> org.hibernate.type.RowVersionType@6209df3f
+2018-08-12 13:17:59.554 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration image -> org.hibernate.type.ImageType@542253a0
+2018-08-12 13:17:59.556 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration characters -> org.hibernate.type.CharArrayType@23fafc62
+2018-08-12 13:17:59.556 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration char[] -> org.hibernate.type.CharArrayType@23fafc62
+2018-08-12 13:17:59.556 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration [C -> org.hibernate.type.CharArrayType@23fafc62
+2018-08-12 13:17:59.558 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration wrapper-characters -> org.hibernate.type.CharacterArrayType@2a62d2ef
+2018-08-12 13:17:59.558 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration [Ljava.lang.Character; -> org.hibernate.type.CharacterArrayType@2a62d2ef
+2018-08-12 13:17:59.558 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration Character[] -> org.hibernate.type.CharacterArrayType@2a62d2ef
+2018-08-12 13:17:59.559 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration text -> org.hibernate.type.TextType@3518e105
+2018-08-12 13:17:59.560 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration ntext -> org.hibernate.type.NTextType@11261c8f
+2018-08-12 13:17:59.571 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration blob -> org.hibernate.type.BlobType@6ece1406
+2018-08-12 13:17:59.592 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Blob -> org.hibernate.type.BlobType@6ece1406
+2018-08-12 13:17:59.593 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_blob -> org.hibernate.type.MaterializedBlobType@18019c76
+2018-08-12 13:17:59.599 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration clob -> org.hibernate.type.ClobType@42652e0a
+2018-08-12 13:17:59.599 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Clob -> org.hibernate.type.ClobType@42652e0a
+2018-08-12 13:17:59.606 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration nclob -> org.hibernate.type.NClobType@16d2f653
+2018-08-12 13:17:59.606 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.NClob -> org.hibernate.type.NClobType@16d2f653
+2018-08-12 13:17:59.607 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_clob -> org.hibernate.type.MaterializedClobType@2c5a5d13
+2018-08-12 13:17:59.607 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_nclob -> org.hibernate.type.MaterializedNClobType@976d199
+2018-08-12 13:17:59.609 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration serializable -> org.hibernate.type.SerializableType@1bc349ab
+2018-08-12 13:17:59.616 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration object -> org.hibernate.type.ObjectType@554a1d45
+2018-08-12 13:17:59.617 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Object -> org.hibernate.type.ObjectType@554a1d45
+2018-08-12 13:17:59.619 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_date -> org.hibernate.type.AdaptedImmutableType@136f242a
+2018-08-12 13:17:59.670 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_time -> org.hibernate.type.AdaptedImmutableType@164ab337
+2018-08-12 13:17:59.671 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_timestamp -> org.hibernate.type.AdaptedImmutableType@7c1dfa0a
+2018-08-12 13:17:59.671 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_dbtimestamp -> org.hibernate.type.AdaptedImmutableType@1ca14acd
+2018-08-12 13:17:59.671 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_calendar -> org.hibernate.type.AdaptedImmutableType@76856307
+2018-08-12 13:17:59.671 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_calendar_date -> org.hibernate.type.AdaptedImmutableType@3595a5eb
+2018-08-12 13:17:59.672 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_binary -> org.hibernate.type.AdaptedImmutableType@26cbc4f9
+2018-08-12 13:17:59.672 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_serializable -> org.hibernate.type.AdaptedImmutableType@30aa05cf
+2018-08-12 13:17:59.711  INFO 75736 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2018-08-12 13:18:00.007  INFO 75736 --- [restartedMain] o.h.e.j.e.i.LobCreatorBuilderImpl        : HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
 
 java.lang.reflect.InvocationTargetException: null
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_161]
@@ -191,12 +201,12 @@ Caused by: java.sql.SQLFeatureNotSupportedException: Method org.postgresql.jdbc.
 	at org.postgresql.jdbc.PgConnection.createClob(PgConnection.java:1252) ~[postgresql-42.2.1.jar:42.2.1]
 	... 49 common frames omitted
 
-2018-08-08 22:44:47.676 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration pg-uuid -> org.hibernate.type.PostgresUUIDType@62ffeb24
-2018-08-08 22:44:47.677 DEBUG 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.UUID -> org.hibernate.type.PostgresUUIDType@62ffeb24
-2018-08-08 22:44:47.677  INFO 53369 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@355ffbb
-2018-08-08 22:44:48.431 TRACE 53369 --- [restartedMain] org.hibernate.type.TypeFactory           : Scoping types to session factory org.hibernate.internal.SessionFactoryImpl@5de92354
-2018-08-08 22:44:49.506 DEBUG 53369 --- [restartedMain] org.hibernate.SQL                        : alter table public.comments add column comment_id int8 not null
-2018-08-08 22:44:49.512  WARN 53369 --- [restartedMain] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL via JDBC Statement
+2018-08-12 13:18:00.013 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration pg-uuid -> org.hibernate.type.PostgresUUIDType@3ce89cb3
+2018-08-12 13:18:00.013 DEBUG 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.UUID -> org.hibernate.type.PostgresUUIDType@3ce89cb3
+2018-08-12 13:18:00.013  INFO 75736 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@7a7e1364
+2018-08-12 13:18:00.619 TRACE 75736 --- [restartedMain] org.hibernate.type.TypeFactory           : Scoping types to session factory org.hibernate.internal.SessionFactoryImpl@70157fce
+2018-08-12 13:18:01.527 DEBUG 75736 --- [restartedMain] org.hibernate.SQL                        : alter table public.comments add column comment_id int8 not null
+2018-08-12 13:18:01.625  WARN 75736 --- [restartedMain] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL via JDBC Statement
 
 org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL via JDBC Statement
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.2.14.Final.jar:5.2.14.Final]
@@ -254,8 +264,8 @@ Caused by: org.postgresql.util.PSQLException: ERROR: column "comment_id" contain
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.2.14.Final.jar:5.2.14.Final]
 	... 39 common frames omitted
 
-2018-08-08 22:44:49.550 DEBUG 53369 --- [restartedMain] org.hibernate.SQL                        : alter table comments add constraint FKe2dbs56lhmp8fucafi3xvhjyd foreign key (comment_id) references comments
-2018-08-08 22:44:49.554  WARN 53369 --- [restartedMain] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL via JDBC Statement
+2018-08-12 13:18:01.668 DEBUG 75736 --- [restartedMain] org.hibernate.SQL                        : alter table comments add constraint FKe2dbs56lhmp8fucafi3xvhjyd foreign key (comment_id) references comments
+2018-08-12 13:18:01.670  WARN 75736 --- [restartedMain] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL via JDBC Statement
 
 org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL via JDBC Statement
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.2.14.Final.jar:5.2.14.Final]
@@ -312,13 +322,83 @@ Caused by: org.postgresql.util.PSQLException: ERROR: column "comment_id" referen
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.2.14.Final.jar:5.2.14.Final]
 	... 38 common frames omitted
 
-2018-08-08 22:44:49.576  INFO 53369 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2018-08-08 22:44:52.735  WARN 53369 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2018-08-08 22:44:53.153  INFO 53369 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2018-08-08 22:44:54.016  INFO 53369 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2018-08-08 22:44:54.226  INFO 53369 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
-2018-08-08 22:44:54.229  INFO 53369 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
-2018-08-08 22:44:54.244  INFO 53369 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
-2018-08-08 22:44:54.404  INFO 53369 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2018-08-08 22:44:54.411  INFO 53369 --- [restartedMain] c.e.easynotes.EasyNotesApplication       : Started EasyNotesApplication in 20.987 seconds (JVM running for 22.607)
-2018-08-08 23:04:32.717  INFO 53369 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-08-12 13:18:01.702  INFO 75736 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-08-12 13:18:03.953  WARN 75736 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-08-12 13:18:04.302  INFO 75736 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2018-08-12 13:18:04.644  INFO 75736 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-08-12 13:18:04.877  INFO 75736 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-08-12 13:18:04.879  INFO 75736 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-08-12 13:18:04.893  INFO 75736 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2018-08-12 13:18:04.983  INFO 75736 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-08-12 13:18:04.988  INFO 75736 --- [restartedMain] c.e.easynotes.EasyNotesApplication       : Started EasyNotesApplication in 11.894 seconds (JVM running for 12.802)
+2018-08-12 13:18:53.305  INFO 75736 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-08-12 13:18:53.574 ERROR 75736 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Handler dispatch failed; nested exception is java.lang.UnsatisfiedLinkError: no libzkfp in java.library.path] with root cause
+
+java.lang.UnsatisfiedLinkError: no libzkfp in java.library.path
+	at java.lang.ClassLoader.loadLibrary(ClassLoader.java:1867) ~[na:1.8.0_161]
+	at java.lang.Runtime.loadLibrary0(Runtime.java:870) ~[na:1.8.0_161]
+	at java.lang.System.loadLibrary(System.java:1122) ~[na:1.8.0_161]
+	at com.zkteco.biometric.ZKFPService.<clinit>(ZKFPService.java:18) ~[classes/:na]
+	at com.zkteco.biometric.FingerprintSensorEx.Init(FingerprintSensorEx.java:21) ~[classes/:na]
+	at com.example.easynotes.controller.MpesaController.test(MpesaController.java:348) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_161]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_161]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_161]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_161]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:209) ~[spring-web-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:136) ~[spring-web-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102) ~[spring-webmvc-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:870) ~[spring-webmvc-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:776) ~[spring-webmvc-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:991) ~[spring-webmvc-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:978) ~[spring-webmvc-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:870) ~[spring-webmvc-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635) ~[tomcat-embed-core-8.5.28.jar:8.5.28]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:855) ~[spring-webmvc-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742) ~[tomcat-embed-core-8.5.28.jar:8.5.28]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-8.5.28.jar:8.5.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.28.jar:8.5.28]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) ~[tomcat-embed-websocket-8.5.28.jar:8.5.28]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.28.jar:8.5.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.28.jar:8.5.28]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) ~[spring-web-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.28.jar:8.5.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.28.jar:8.5.28]
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109) ~[spring-web-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.28.jar:8.5.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.28.jar:8.5.28]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81) ~[spring-web-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.28.jar:8.5.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.28.jar:8.5.28]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.28.jar:8.5.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.28.jar:8.5.28]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199) ~[tomcat-embed-core-8.5.28.jar:8.5.28]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-8.5.28.jar:8.5.28]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:496) [tomcat-embed-core-8.5.28.jar:8.5.28]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140) [tomcat-embed-core-8.5.28.jar:8.5.28]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81) [tomcat-embed-core-8.5.28.jar:8.5.28]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [tomcat-embed-core-8.5.28.jar:8.5.28]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) [tomcat-embed-core-8.5.28.jar:8.5.28]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803) [tomcat-embed-core-8.5.28.jar:8.5.28]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-8.5.28.jar:8.5.28]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:790) [tomcat-embed-core-8.5.28.jar:8.5.28]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459) [tomcat-embed-core-8.5.28.jar:8.5.28]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-8.5.28.jar:8.5.28]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_161]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_161]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-8.5.28.jar:8.5.28]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_161]
+
+2018-08-12 13:19:24.095  INFO 75736 --- [Thread-10] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@4c6740e1: startup date [Sun Aug 12 13:17:54 EAT 2018]; root of context hierarchy
+2018-08-12 13:19:24.099  INFO 75736 --- [Thread-10] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-08-12 13:19:24.100  INFO 75736 --- [Thread-10] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
+2018-08-12 13:19:24.107  INFO 75736 --- [Thread-10] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-08-12 13:19:24.110  INFO 75736 --- [Thread-10] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-08-12 13:19:24.122  INFO 75736 --- [Thread-10] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
