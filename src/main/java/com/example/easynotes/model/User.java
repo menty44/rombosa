@@ -10,6 +10,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
+import java.util.UUID;
 
 /**
  * Fredrick Oluoch
@@ -24,6 +25,8 @@ import java.util.Date;
 @JsonIgnoreProperties(value = {"createdAt", "updatedAt"},
         allowGetters = true)
 public class User {
+
+    private UUID encry = UUID.randomUUID();
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,9 +47,6 @@ public class User {
     @NotBlank
     private String password;
 
-
-    private String uid;
-
     //@NotBlank
     private String activated;
 
@@ -59,7 +59,6 @@ public class User {
     @Temporal(TemporalType.TIMESTAMP)
     @LastModifiedDate
     private Date updatedAt;
-
 
     public Long getId() {
         return id;
@@ -117,13 +116,14 @@ public class User {
         this.activated = activated;
     }
 
-    public String getUid() {
-        return uid;
-    }
-
-    public void setUid(String uid) {
-        this.uid = uid;
-    }
+//    public String getUuid() {
+//        return uuid;
+//    }
+//
+//    public void setUuid(String uuid) {
+//
+//        this.uuid = encry;
+//    }
 
     public Date getCreatedAt() {
         return createdAt;
@@ -140,4 +140,13 @@ public class User {
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
     }
+
+    public UUID getEncry() {
+        return encry;
+    }
+
+    public void setEncry(UUID encry) {
+        this.encry = encry;
+    }
+
 }
