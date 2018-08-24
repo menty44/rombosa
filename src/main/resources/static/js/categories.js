@@ -5,9 +5,9 @@
  * 0720106420 | 0722508906
  * email: menty44@gmail.com
  */
-var mainApp = angular.module("mainApp", []);
+var routerApp = angular.module("routerApp");
 
-mainApp.controller("fredCtrl", function($scope, $http) {
+routerApp.controller("fredCtrl", function($scope, $http) {
 
     $scope.categories = function categories() {
         // Simple GET request example:

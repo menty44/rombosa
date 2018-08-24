@@ -70,7 +70,8 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
         // nested list with custom controller
         .state('register', {
             url: '/register',
-            templateUrl: 'register.html'
+            templateUrl: 'register.html',
+            controller: 'registerController'
             // controller: function($scope) {
             //     $scope.dogs = ['Bernese', 'Husky', 'Goldendoodle'];
             // }

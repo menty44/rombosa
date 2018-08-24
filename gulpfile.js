@@ -6,8 +6,8 @@ var concat = require('gulp-concat');
 
 gulp.task('default', function() {
     return gulp.src('src/main/resources/static/js/*.js')
-        .pipe(concat('app.js'))
-        .pipe(uglify('app.js', {
+        .pipe(concat('final.js'))
+        .pipe(uglify('final.js', {
                     mangle: false,
                     output: {
                         beautify: true

@@ -37,7 +37,7 @@
 // var mainApp = angular.module('mainApp', ['ng-fusioncharts']);
 // angular.module('mainApp').controller('operatorController', ['$rootScope', '$scope', function ($scope, $http) {
 
-mainApp.controller('mainController', function($scope, $http) {
+app.controller('mainController', function($scope, $http) {
 
 
     $scope.reverseme = function reverseme() {
