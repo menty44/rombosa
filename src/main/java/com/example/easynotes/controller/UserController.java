@@ -9,12 +9,15 @@ import com.example.easynotes.model.User;
 import com.example.easynotes.repository.MyErrorRepository;
 import com.example.easynotes.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Fredrick Oluoch
@@ -97,5 +100,25 @@ public class UserController {
 
         User updatedUser = userRepository.save(user);
         return updatedUser;
+    }
+
+    @CrossOrigin
+    @RequestMapping(value = "checker", method = RequestMethod.GET, produces = "application/json")
+    @ResponseBody
+    public ResponseEntity<Map<String,String>> getRev(@RequestParam(value = "text") String text) throws IOException {
+
+        Map<String,String> response = new HashMap<String, String>();
+
+        boolean isValid = true;
+
+        if(text!= null && !text.isEmpty()){
+            response.put("ok", text);
+            return ResponseEntity.accepted().body(response);
+        }else {
+            String ts = "text";
+            response.put("error", ts+" has an empty or a null value");
+            return ResponseEntity.badRequest().body(response);
+        }
+
     }
 }
