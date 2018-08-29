@@ -18,8 +18,6 @@ import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name = "comments")
@@ -47,8 +45,8 @@ public class Comment extends AuditModel{
 //            mappedBy = "comment")
 //    private Set<Reply> replies = new HashSet<>();
 
-    @OneToMany(mappedBy="comment")
-    private Set<Reply> replies = new HashSet<>();
+//    @OneToMany(mappedBy="comment")
+//    private Set<Reply> replies = new HashSet<>();
 
 
 
@@ -78,11 +76,4 @@ public class Comment extends AuditModel{
     }
 
 
-    public Set<Reply> getReplies() {
-        return replies;
-    }
-
-    public void setReplies(Set<Reply> replies) {
-        this.replies = replies;
-    }
 }

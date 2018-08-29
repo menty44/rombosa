@@ -6,11 +6,14 @@ package com.example.easynotes.controller;
 
 import com.example.easynotes.exception.ResourceNotFoundException;
 import com.example.easynotes.model.User;
+import com.example.easynotes.repository.MyErrorRepository;
 import com.example.easynotes.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -27,15 +30,42 @@ public class UserController {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    MyErrorRepository myErrorRepository;
+
     @GetMapping("/users")
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
     @PostMapping("/userpost")
-    public User createUser(@Valid @RequestBody User user) {
+    //public User createUser(@Valid @RequestBody User user) {
+    public HashMap<String ,String> createUser(@Valid @RequestBody User user ,HttpServletRequest request) {
 
-        return userRepository.save(user);
+        String value1 = request.getParameter("email");
+
+//        User msg;
+//        //msg = userRepository.save(user);
+//        msg = userRepository.save(user);
+//
+        HashMap<String ,String> hashMap=new HashMap<>();
+//        User i=userRepository.findByEmail(user.getEmail());
+//        if(msg.getEmail()!= null){
+//            hashMap.put("msg","success");
+//            hashMap.put("code","00");
+//            hashMap.put("email",msg.getEmail());
+//            hashMap.put("firstname",msg.getFirstname());
+//            hashMap.put("lastname",msg.getLastname());
+//            hashMap.put("mobile",msg.getMobile());
+//        }else {
+//            hashMap.put("msg","Error");
+//            hashMap.put("code","03");
+//        }
+
+        hashMap.put("test", value1);
+
+
+        return hashMap;
     }
 
 //    @PostMapping("/gender")

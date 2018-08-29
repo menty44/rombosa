@@ -29,7 +29,7 @@ public class PostController {
     @Autowired
     PostRepository postRepository;
 
-    @GetMapping("/posts")
+    @GetMapping("/postspageable")
     public Page<Post> getAllPosts(Pageable pageable) {
         return postRepository.findAll(pageable);
     }
@@ -47,6 +47,8 @@ public class PostController {
             post.setContent(postRequest.getContent());
             return postRepository.save(post);
         }).orElseThrow(() -> new ResourceNotFoundException("PostId " + postId + " not found"));
+//        }).orElseThrow(() -> new ResourceNotFoundException(""+postId ));
+
     }
 
 

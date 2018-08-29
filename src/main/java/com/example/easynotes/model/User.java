@@ -8,7 +8,6 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import java.util.Date;
 import java.util.UUID;
 
@@ -32,19 +31,19 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
+    //@NotBlank
     private String firstname;
 
-    @NotBlank
+    //@NotBlank
     private String lastname;
 
-    @NotBlank
+    //@NotBlank
     private String mobile;
 
-    @NotBlank
+    //@NotBlank
     private String email;
 
-    @NotBlank
+    //@NotBlank
     private String password;
 
     //@NotBlank
