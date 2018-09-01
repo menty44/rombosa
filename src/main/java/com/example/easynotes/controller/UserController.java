@@ -8,8 +8,12 @@ import com.example.easynotes.exception.ResourceNotFoundException;
 import com.example.easynotes.model.User;
 import com.example.easynotes.repository.MyErrorRepository;
 import com.example.easynotes.repository.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -35,6 +39,14 @@ public class UserController {
 
     @Autowired
     MyErrorRepository myErrorRepository;
+
+    @Autowired
+    private JavaMailSender sender;
+
+    @Autowired
+    JavaMailSender javaMailSender;
+
+    Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @GetMapping("/users")
     public List<User> getAllUsers() {
@@ -121,4 +133,70 @@ public class UserController {
         }
 
     }
+
+    //new user reg
+    @CrossOrigin
+    @RequestMapping(value = "regnewuser", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<Map<String,String>> registerNewUser(@RequestParam(value = "firstname", defaultValue = "not available") String firstname,
+                      @RequestParam(value = "lastname", defaultValue = "not available") String lastname,
+                      @RequestParam(value = "mobile", defaultValue = "not available") String mobile,
+                      @RequestParam(value = "email", defaultValue = "not available") String email,
+                      @RequestParam(value = "password", defaultValue = "not available") String password) throws IOException {
+
+        Map<String,String> response = new HashMap<String, String>();
+
+        if(firstname!= null && !firstname.isEmpty() && lastname!= null && !lastname.isEmpty() && mobile!= null && !mobile.isEmpty() && email!= null && !email.isEmpty() && password!= null && !password.isEmpty()){
+
+            User user = new User();
+
+            user.setFirstname(firstname);
+            user.setLastname(lastname);
+            user.setMobile(mobile);
+            user.setEmail(email);
+            user.setPassword(password);
+            user.setActivated("0");
+
+            userRepository.save(user);
+
+            sendMail(email);
+
+            response.put("ok", "");
+            return ResponseEntity.accepted().body(response);
+            //return ResponseEntity.accepted().body(response);
+        }else {
+            String ts = "paramsmissing";
+            response.put("error", ts+" has an empty or a null value");
+            return ResponseEntity.badRequest().body(response);
+        }
+    }
+
+    public void sendMail( String to) {
+
+        if (to != null && !to.isEmpty()) {
+            SimpleMailMessage mail = new SimpleMailMessage();
+
+            try {
+                String subject = "AfroBoot Account Activation";
+                String body = "Welcome to Afroboot\n"+"Please Clink on this link to activate your account";
+                String from = "info@blaqueyard.com";
+
+                mail.setFrom(from);
+                mail.setTo(to);
+                mail.setSubject(subject);
+                mail.setText(body);
+
+                System.out.println("Sending Email For Activation...");
+
+                javaMailSender.send(mail);
+                System.out.println("Done! Sending Emails");
+            }catch (Exception ex){
+                ex.printStackTrace();
+            }
+        }else {
+            System.out.println("Missing Parameters");
+        }
+
+
+    }
+
 }
