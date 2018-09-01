@@ -160,12 +160,14 @@ public class UserController {
 
             sendMail(email);
 
-            response.put("ok", "");
+            response.put("ok", "save success");
+            response.put("code", "00");
             return ResponseEntity.accepted().body(response);
             //return ResponseEntity.accepted().body(response);
         }else {
             String ts = "paramsmissing";
             response.put("error", ts+" has an empty or a null value");
+            response.put("code", "03");
             return ResponseEntity.badRequest().body(response);
         }
     }
@@ -196,6 +198,34 @@ public class UserController {
             System.out.println("Missing Parameters");
         }
 
+
+    }
+
+    //new user reg
+    @CrossOrigin
+    @RequestMapping(value = "validate", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<Map<String,String>>  validateNewUser(@RequestParam(value = "auth", defaultValue = "not available") String auth)throws IOException{
+
+        Map<String,String> response = new HashMap<String, String>();
+
+        if (auth != null && !auth.isEmpty()) {
+
+            User us = userRepository.findByEncry(auth);
+                    //.orElseThrow(() -> new ResourceNotFoundException("Validation", "id", auth));
+
+            us.setActivated("1");
+
+            userRepository.save(us);
+
+            response.put("ok", "save success");
+            response.put("code", "00");
+            return ResponseEntity.accepted().body(response);
+
+        }else {
+            response.put("error", " not validated");
+            response.put("code", "03");
+            return ResponseEntity.badRequest().body(response);
+        }
 
     }
 
