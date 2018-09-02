@@ -1277,3 +1277,9 @@ org.postgresql.util.PSQLException: ERROR: operator does not exist: character var
 2018-09-02 08:55:14.469 TRACE 9452 --- [http-nio-8080-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [menty]
 2018-09-02 08:55:14.474 TRACE 9452 --- [http-nio-8080-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [TIMESTAMP] - [Sun Sep 02 08:55:14 EAT 2018]
 2018-09-02 08:55:14.475 TRACE 9452 --- [http-nio-8080-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [BIGINT] - [44]
+2018-09-02 13:55:03.834  INFO 9452 --- [Thread-10] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@5a690eaf: startup date [Sun Sep 02 08:50:28 EAT 2018]; root of context hierarchy
+2018-09-02 13:55:03.840  INFO 9452 --- [Thread-10] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-09-02 13:55:03.841  INFO 9452 --- [Thread-10] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
+2018-09-02 13:55:03.846  INFO 9452 --- [Thread-10] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-09-02 13:55:03.926  INFO 9452 --- [Thread-10] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-09-02 13:55:03.935  INFO 9452 --- [Thread-10] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
