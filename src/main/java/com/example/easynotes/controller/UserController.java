@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * Fredrick Oluoch
@@ -47,6 +48,8 @@ public class UserController {
     JavaMailSender javaMailSender;
 
     Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    private UUID encry = UUID.randomUUID();
 
     @GetMapping("/users")
     public List<User> getAllUsers() {
@@ -148,17 +151,18 @@ public class UserController {
         if(firstname!= null && !firstname.isEmpty() && lastname!= null && !lastname.isEmpty() && mobile!= null && !mobile.isEmpty() && email!= null && !email.isEmpty() && password!= null && !password.isEmpty()){
 
             User user = new User();
-
+            UUID secu = encry ;
             user.setFirstname(firstname);
             user.setLastname(lastname);
             user.setMobile(mobile);
             user.setEmail(email);
             user.setPassword(password);
+            user.setEncry(secu);
             user.setActivated("0");
 
             userRepository.save(user);
 
-            sendMail(email);
+            sendMail(email, secu);
 
             response.put("ok", "save success");
             response.put("code", "00");
@@ -172,14 +176,14 @@ public class UserController {
         }
     }
 
-    public void sendMail( String to) {
+    public void sendMail( String to, UUID secu) {
 
         if (to != null && !to.isEmpty()) {
             SimpleMailMessage mail = new SimpleMailMessage();
 
             try {
                 String subject = "AfroBoot Account Activation";
-                String body = "Welcome to Afroboot\n"+"Please Clink on this link to activate your account";
+                String body = "Welcome to Afroboot\n"+"Please Click on this link "+"http://localhost:8080/api/validate?auth="+secu+" to activate your account";
                 String from = "info@blaqueyard.com";
 
                 mail.setFrom(from);
@@ -198,17 +202,17 @@ public class UserController {
             System.out.println("Missing Parameters");
         }
 
-
     }
 
     //new user reg
     @CrossOrigin
     @RequestMapping(value = "validate", method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<Map<String,String>>  validateNewUser(@RequestParam(value = "auth", defaultValue = "not available") String auth)throws IOException{
+    public ResponseEntity<Map<String,String>>  validateNewUser(@RequestParam(value = "auth", defaultValue = "not available") UUID auth)throws IOException{
 
         Map<String,String> response = new HashMap<String, String>();
 
-        if (auth != null && !auth.isEmpty()) {
+//        if (auth != null && !auth.isEmpty()) {
+        if (auth != null) {
 
             User us = userRepository.findByEncry(auth);
                     //.orElseThrow(() -> new ResourceNotFoundException("Validation", "id", auth));
@@ -217,7 +221,7 @@ public class UserController {
 
             userRepository.save(us);
 
-            response.put("ok", "save success");
+            response.put("ok", "activation success");
             response.put("code", "00");
             return ResponseEntity.accepted().body(response);
 

@@ -7,6 +7,8 @@ package com.example.easynotes.repository;
 import com.example.easynotes.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.UUID;
+
 //import com.sun.tools.javac.util.List;
 
 //import com.sun.tools.javac.util.List;
@@ -21,5 +23,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface UserRepository extends JpaRepository<User, Long> {
 
     User findByEmail(String email);
-    User findByEncry(String encry);
+    User findByEncry(UUID encry);
 }

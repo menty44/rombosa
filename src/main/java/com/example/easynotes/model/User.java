@@ -25,7 +25,9 @@ import java.util.UUID;
         allowGetters = true)
 public class User {
 
-    private UUID encry = UUID.randomUUID();
+//    private UUID encry = UUID.randomUUID();
+
+    private UUID encry;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -140,6 +142,15 @@ public class User {
         this.updatedAt = updatedAt;
     }
 
+//    public UUID getEncry() {
+//        return encry;
+//    }
+//
+//    public void setEncry(UUID encry) {
+//        this.encry = encry;
+//    }
+
+
     public UUID getEncry() {
         return encry;
     }
@@ -147,5 +158,4 @@ public class User {
     public void setEncry(UUID encry) {
         this.encry = encry;
     }
-
 }
