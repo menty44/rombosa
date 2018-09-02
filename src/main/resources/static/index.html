@@ -1,55 +1,220 @@
-<!DOCTYPE html>
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
 <html>
 <head>
-
-    <!-- CSS (load bootstrap) -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <style>
-        .navbar { border-radius:0; }
-    </style>
-
-
-
-    <!-- JS (load angular, ui-router, and our custom js file) -->
+    <title>AfroBoot | Home of Beauties</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    <script src="js/jquery.min.js"></script>
+    <!--<script src="http://code.angularjs.org/1.2.13/angular.js"></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>-->
+    <!--<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.min.js"></script>-->
     <script src="http://code.angularjs.org/1.2.13/angular.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
-    <script src="app.js"></script>
-    <!--<script src="final.js"></script>-->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>-->
+    <script src="routes.js"></script>
+    <!--<script src="js/app.js"></script>-->
+    <!--<script src="prod/final.js"></script>-->
 </head>
-
-<!-- apply our angular app to our site -->
 <body ng-app="routerApp" ng-cloak>
+<div class="index-banner">
+    <div class="header-top">
+        <div class="wrap">
+            <div class="logo">
+                <a href="index.html"><img src="images/logo.png" alt=""/></a>
+            </div>
+            <div class="menu">
+                <a href="#" class="right_bt" id="activator"><img src="images/nav_icon.png" alt=""></a>
+                <div class="box" id="box">
+                    <div class="box_content_center">
+                        <div class="menu_box_list">
+                            <ul>
+                                <!--<li><a href="index.html">Home</a></li>-->
+                                <!--<li class="active"><a href="about.html">About</a></li>-->
+                                <!--<li><a href="blog.html">Blog</a></li>-->
+                                <!--<li><a href="gallery.html">Gallery</a></li>-->
+                                <!--<li><a href="contact.html">Contact</a></li>-->
+                                <!--<li><a href="404.html">404</a></li>-->
+                                <li><a ui-sref="home">Home</a></li>
+                                <li><a ui-sref="about">About</a></li>
+                                <li><a ui-sref="leaked">Leaked</a></li>
+                                <li><a ui-sref="videos">Clips</a></li>
+                                <li><a ui-sref="photos">Photos</a></li>
+                                <li><a ui-sref="uncensored">Uncensored</a></li>
+                                <li><a ui-sref="dashboard">Dashboard</a></li>
+                                <li><a ui-sref="users">Users</a></li>
+                                <li><a ui-sref="profile">Profile</a></li>
+                                <li><a ui-sref="#payment">Payment</a></li>
+                                <li><a ui-sref="#contact">Contact</a></li>
+                                <li><a ui-sref="#login">Login</a></li>
+                                <li><a ui-sref="#register">Register</a></li>
+                                <li><a ui-sref="#!register">Register</a></li>
+                                <li><a ui-sref="register">Register</a></li>
+                            </ul>
+                        </div>
+                        <a class="boxclose" id="boxclose"><img src="images/close.png" alt=""></a>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    var $ = jQuery.noConflict();
+                    $(function() {
+                        $('#activator').click(function(){
+                            $('#box').animate({'top':'0px'},500);
+                        });
+                        $('#boxclose').click(function(){
+                            $('#box').animate({'top':'-700px'},500);
+                        });
+                    });
+                    $(document).ready(function(){
 
-<!-- NAVIGATION -->
-<nav class="navbar navbar-inverse" role="navigation">
-    <div class="navbar-header">
-        <a class="navbar-brand" ui-sref="/">Afroboot</a>
+                        //Hide (Collapse) the toggle containers on load
+                        $(".toggle_container").hide();
+
+                        //Switch the "Open" and "Close" state per click then slide up/down (depending on open/close state)
+                        $(".trigger").click(function(){
+                            $(this).toggleClass("active").next().slideToggle("slow");
+                            return false; //Prevent the browser jump to the link anchor
+                        });
+
+                    });
+                </script>
+            </div>
+            <div class="clear"></div>
+        </div>
     </div>
-    <ul class="nav navbar-nav">
-        <li><a ui-sref="home">Home</a></li>
-        <li><a ui-sref="about">About</a></li>
-        <li><a ui-sref="videos">Clips</a></li>
-        <li><a ui-sref="photos">Photos</a></li>
-        <li><a ui-sref="uncensored">Uncensored</a></li>
-        <li><a ui-sref="dashboard">Dashboard</a></li>
-        <li><a ui-sref="users">Users</a></li>
-        <li><a ui-sref="profile">Profile</a></li>
-        <li><a ui-sref="payment">Payment</a></li>
-        <li><a ui-sref="login">Login</a></li>
-        <li><a ui-sref="register">Register</a></li>
-    </ul>
-</nav>
-
-<!-- MAIN CONTENT -->
-<!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
-<div class="container">
-    <div ui-view></div>
+    <div>
+        <div ui-view></div>
+    <div class="wmuSlider example1">
+        <article style="position: absolute; width: 100%; opacity: 0;">
+            <div class="banner-wrap">
+                <div class="cont span_2_of_3">
+                    <h1>Photos, illustrations by<br> Creatives all over the world.</h1>
+                    <div class="search_box">
+                        <form>
+                            <input type="text" value="People Walking" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'People Walking';}"><input type="submit" value="">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article style="position: absolute; width: 100%; opacity: 0;">
+            <div class="banner-wrap">
+                <div class="cont span_2_of_3">
+                    <h1>Photos, illustrations by<br> Creatives all over the world.</h1>
+                </div>
+            </div>
+        </article>
+    </div>
+    <script src="js/jquery.wmuSlider.js"></script>
+    <script>
+        $('.example1').wmuSlider();
+    </script>
+</div>
+<div class="main">
+    <div class="content-top">
+        <div class="section1">
+            <div class="cont1 span_2_of_about">
+                <h3 class="m_1"><a ui-sref="register">Create a free account now</a></h3>
+            </div>
+            <div class="rsidebar span_1_of_about">
+                <a ui-sref="register"><div class="btn">Register now</div></a>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="content-bottom">
+        <h2 class="m_2">Browse by Category</h2>
+        <div class="wrap">
+            <div class="section group">
+                <div class="col_1_of_5 span_1_of_5">
+                    <ul class="list1">
+                        <li><a href="abstract.html">Abstract</a></li>
+                        <li><a href="abstract.html">Animals/Wildlife</a></li>
+                        <li><a href="abstract.html">The Arts</a></li>
+                        <li><a href="abstract.html">Backgrounds/Textures</a></li>
+                        <li><a href="abstract.html">Beauty/Fashion</a></li>
+                        <li><a href="abstract.html">Buildings/Landmarks</a></li>
+                    </ul>
+                </div>
+                <div class="col_1_of_5 span_1_of_5">
+                    <ul class="list1">
+                        <li><a href="abstract.html">Business/Finance</a></li>
+                        <li><a href="abstract.html">Celebrities</a></li>
+                        <li><a href="abstract.html">Editorial</a></li>
+                        <li><a href="abstract.html">Education</a></li>
+                        <li><a href="abstract.html">Food and Drink</a></li>
+                        <li><a href="abstract.html">Healthcare/Medical</a></li>
+                    </ul>
+                </div>
+                <div class="col_1_of_5 span_1_of_5">
+                    <ul class="list1">
+                        <li><a href="abstract.html">Holidays</a></li>
+                        <li><a href="abstract.html">Illustrations/Clip-Art</a></li>
+                        <li><a href="abstract.html">Industrial</a></li>
+                        <li><a href="abstract.html">Interiors</a></li>
+                        <li><a href="abstract.html">Miscellaneous</a></li>
+                        <li><a href="abstract.html">Model Released Only</a></li>
+                    </ul>
+                </div>
+                <div class="col_1_of_5 span_1_of_5">
+                    <ul class="list1">
+                        <li><a href="abstract.html">Nature</a></li>
+                        <li><a href="abstract.html">Objects</a></li>
+                        <li><a href="abstract.html">Parks/Outdoor</a></li>
+                        <li><a href="abstract.html">People</a></li>
+                        <li><a href="abstract.html">Religion</a></li>
+                        <li><a href="abstract.html">Science</a></li>
+                    </ul>
+                </div>
+                <div class="col_1_of_5 span_1_of_5">
+                    <ul class="list1">
+                        <li><a href="abstract.html">Signs/Symbols</a></li>
+                        <li><a href="abstract.html">Sports/Recreation</a></li>
+                        <li><a href="abstract.html">Technology</a></li>
+                        <li><a href="abstract.html">Transportation</a></li>
+                        <li><a href="abstract.html">Vectors</a></li>
+                        <li><a href="abstract.html">Vintage</a></li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="text-center">
-    <p>A tutorial by <a href="http://scotch.io" target="_blank">scotch.io</a></p>
-    <p>View the tutorial: <a href="http://scotch.io/tutorials/javascript/angular-routing-using-ui-router" target="_blank">AngularJS Routing using UI-Router</a></p>
+<div class="footer">
+    <div class="wrap">
+        <div class="copy">
+            <p>© 2014 Template by <a href="http://w3layouts.com" target="_blank"> w3layouts</a></p>
+        </div>
+    </div>
 </div>
+</div>
+
+<script>
+    var app = angular.module('ngRoutingDemo', ['ngRoute']);
+
+    app.config(function ($routeProvider) {
+
+        $routeProvider.when('/register', {
+            templateUrl: '/register.html'
+            //controller: 'loginController'
+            // }).when('/student/:username', {
+            //     templateUrl: '/student.html',
+            //     controller: 'studentController'
+        }).otherwise({
+            redirectTo: "/"
+        });
+
+    });
+</script>
 
 </body>
 </html>

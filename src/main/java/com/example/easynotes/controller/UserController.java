@@ -15,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -140,11 +141,12 @@ public class UserController {
     //new user reg
     @CrossOrigin
     @RequestMapping(value = "regnewuser", method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<Map<String,String>> registerNewUser(@RequestParam(value = "firstname", defaultValue = "not available") String firstname,
-                      @RequestParam(value = "lastname", defaultValue = "not available") String lastname,
-                      @RequestParam(value = "mobile", defaultValue = "not available") String mobile,
-                      @RequestParam(value = "email", defaultValue = "not available") String email,
-                      @RequestParam(value = "password", defaultValue = "not available") String password) throws IOException {
+    public ResponseEntity<Map<String,String>> registerNewUser(
+            @RequestParam(value = "firstname") String firstname,
+                          @RequestParam(value = "lastname") String lastname,
+                          @RequestParam(value = "mobile") String mobile,
+                          @RequestParam(value = "email") String email,
+                          @RequestParam(value = "password") String password) throws IOException {
 
         Map<String,String> response = new HashMap<String, String>();
 
@@ -206,8 +208,8 @@ public class UserController {
 
     //new user reg
     @CrossOrigin
-    @RequestMapping(value = "validate", method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<Map<String,String>>  validateNewUser(@RequestParam(value = "auth", defaultValue = "not available") UUID auth)throws IOException{
+    @RequestMapping(value = "validate", method = RequestMethod.GET, produces = "text/html")
+    public ResponseEntity<Map<String,String>> validateNewUser(@RequestParam(value = "auth", defaultValue = "not available") UUID auth)throws IOException{
 
         Map<String,String> response = new HashMap<String, String>();
 
@@ -221,16 +223,44 @@ public class UserController {
 
             userRepository.save(us);
 
+            ModelAndView modelAndView = new ModelAndView();
+            modelAndView.setViewName("leaked");
+
             response.put("ok", "activation success");
             response.put("code", "00");
             return ResponseEntity.accepted().body(response);
 
         }else {
+            ModelAndView modelAndView = new ModelAndView();
+            modelAndView.setViewName("leaked");
+
             response.put("error", " not validated");
             response.put("code", "03");
-            return ResponseEntity.badRequest().body(response);
+            return ResponseEntity.accepted().body(response);
         }
 
+    }
+
+    @RequestMapping(value = "/success", method = RequestMethod.GET)
+    public ResponseEntity<Map<String,String>> authenticateduser() {
+
+        Map<String,String> response = new HashMap<String, String>();
+
+        response.put("ok", "activation success");
+        response.put("code", "00");
+
+        return ResponseEntity.accepted().body(response);
+    }
+
+    @RequestMapping(value = "/failed", method = RequestMethod.GET)
+    public ResponseEntity<Map<String,String>> faileduser() {
+
+        Map<String,String> response = new HashMap<String, String>();
+
+        response.put("error", " not validated");
+        response.put("code", "03");
+
+        return ResponseEntity.accepted().body(response);
     }
 
 }
