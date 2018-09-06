@@ -394,7 +394,7 @@ routerApp.controller('paymentController', function($scope, $http) {
 });
 
 // routerApp.controller('DemoController', DemoController,['sweetalert']);
-routerApp.controller('regController', ['SweetAlert', function($scope, $http, SweetAlert) {
+routerApp.controller('regController',  function($scope, $http) {
 
     $scope.registernew  = function registernew(firstname, lastname, email, mobile, password){
         console.log('firstname',firstname);
@@ -403,20 +403,8 @@ routerApp.controller('regController', ['SweetAlert', function($scope, $http, Swe
         console.log('mobile',mobile);
         console.log('password',password);
 
-        SweetAlert.swal({
-                title: "Are you sure?",
-                text: "Your will not be able to recover this imaginary file!",
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#DD6B55",
-                confirmButtonText: "Yes, delete it!",
-                closeOnConfirm: false},
-            function(){
-                SweetAlert.swal("Booyah!");
-            });
-
         if(firstname && lastname && email && mobile && password){
-            var url = "http://localhost:8080/api/regnewuser?firstname="+firstname+"&lastname="+lastname+"&mobile="+mobile+"&email="+email+"&password="+password;
+            var url = "http://localhost:8080/api/regnewuser?firstname="+firstname+"&lastname="+lastname+"&mobile="+mobile+"&email="+email+"&password="+password+"v="+Date.now();
 
             $http.get(url).then(function (response) {
 
@@ -426,17 +414,13 @@ routerApp.controller('regController', ['SweetAlert', function($scope, $http, Swe
 
                 $scope.testing = test.code;
 
-                swal('Hello, ' + test);
-
                 console.log('++ FRIDAY TEST ++', test);
 
             });
-        }else if(!firstname || !lastname || !email || !mobile || !password){
+        }else {
 
             $scope.testing = {"03" : "Missing Parameters"};
 
-        }else if(firstname === null && lastname === null  && email === null  && mobile === null  && password === null ){
-            $scope.testing = {"03" : "Missing Parameters"};
         }
 
     };
@@ -449,6 +433,6 @@ routerApp.controller('regController', ['SweetAlert', function($scope, $http, Swe
     //         swal('Hello, World!');
     //     };
     // }
-}]);
+});
 
  
