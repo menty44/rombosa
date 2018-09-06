@@ -1,5 +1,8 @@
 <div class="main">
     <div class="register_account">
+        <div style="background: green; color: white; text-align: center;" ng-show="testing == '00'" class="col-md-12">
+            <h1>Registration Successful, Please check your email for the Activation link to Activate your Account</h1>
+        </div>
         <div class="wrap">
             <h4 class="title">Create an Account</h4>
             <form>
@@ -38,11 +41,11 @@
                 </div>
                 <!--<button class="grey">Submit</button>-->
                 <p class="terms">By clicking 'Create Account' you agree to the <a href="#">Terms &amp; Conditions</a></p>
-                <div ng-show="testing == '00'">{{testing}}</div>
                 <div ng-show="testing == '03'">{{testing}}</div>
                 <div class="clear"></div>
             </form>
 
     </div>
+
     </div>
 </div>

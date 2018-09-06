@@ -397,6 +397,14 @@ routerApp.controller('paymentController', function($scope, $http) {
 routerApp.controller('regController',  function($scope, $http) {
 
     $scope.registernew  = function registernew(firstname, lastname, email, mobile, password){
+
+        // Text
+        $.LoadingOverlay("show", {
+            image       : "",
+            background  : "rgba(165, 190, 100, 0.5)",
+            text        : "Please wait as we setup your Profile ..."
+        });
+
         console.log('firstname',firstname);
         console.log('lastname',lastname);
         console.log('email',email);
@@ -404,10 +412,11 @@ routerApp.controller('regController',  function($scope, $http) {
         console.log('password',password);
 
         if(firstname && lastname && email && mobile && password){
-            var url = "http://localhost:8080/api/regnewuser?firstname="+firstname+"&lastname="+lastname+"&mobile="+mobile+"&email="+email+"&password="+password+"v="+Date.now();
+            var url = "http://localhost:8080/api/regnewuser?firstname="+firstname+"&lastname="+lastname+"&mobile="+mobile+"&email="+email+"&password="+password+"&v="+Date.now();
 
             $http.get(url).then(function (response) {
 
+                //console.log('the time ', _.now);
                 $scope.fred = response.data;
 
                 var test = $scope.fred;
@@ -416,12 +425,17 @@ routerApp.controller('regController',  function($scope, $http) {
 
                 console.log('++ FRIDAY TEST ++', test);
 
+                $.LoadingOverlay("hide");
             });
         }else {
 
             $scope.testing = {"03" : "Missing Parameters"};
 
+
+
         }
+
+
 
     };
 

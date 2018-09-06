@@ -15,7 +15,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -223,16 +222,11 @@ public class UserController {
 
             userRepository.save(us);
 
-            ModelAndView modelAndView = new ModelAndView();
-            modelAndView.setViewName("leaked");
-
             response.put("ok", "activation success");
             response.put("code", "00");
             return ResponseEntity.accepted().body(response);
 
         }else {
-            ModelAndView modelAndView = new ModelAndView();
-            modelAndView.setViewName("leaked");
 
             response.put("error", " not validated");
             response.put("code", "03");

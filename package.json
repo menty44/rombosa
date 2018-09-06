@@ -6,7 +6,8 @@
   "dependencies": {
     "angular-sweetalert": "^1.1.2",
     "gulp-jade": "^1.1.0",
-    "pump": "^3.0.0"
+    "pump": "^3.0.0",
+    "sarsha-loading-spinner": "^1.0.0"
   },
   "devDependencies": {
     "browser-sync": "^2.24.6",
