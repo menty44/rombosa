@@ -1,0 +1,1 @@
+{"version":3,"file":"overlay.js","sourceRoot":"","sources":["overlay.ts"],"names":[],"mappings":";AAAA,sBAA6B,UAAU,CAAC,CAAA;AACxC,uBAA8B,WAAW,CAAC,CAAA;AAE1C,IAAM,eAAe,GAAG;IACtB,IAAM,OAAO,GAAG,oBAAY,CAAC,sBAAa,CAAC,CAAC;IAE5C,QAAQ,CAAC,IAAI,CAAC,WAAW,CAAC,OAAO,CAAC,CAAC;AACrC,CAAC,CAAC;AAEF;qBAAe,eAAe,CAAC"}

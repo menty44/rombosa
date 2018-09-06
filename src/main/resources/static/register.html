@@ -3,23 +3,46 @@
         <div class="wrap">
             <h4 class="title">Create an Account</h4>
             <form>
-                <div class="col_1_of_2 span_1_of_2">
-                    <div><input type="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}"></div>
-                    <div><input type="text" value="Company Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Company Name';}"></div>
-                    <div><input type="text" value="E-Mail" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'E-Mail';}"></div>
-                    <div><input type="text" value="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'password';}"></div>
-                </div>
-                <div class="col_1_of_2 span_1_of_2">
-                    <div><input type="text" value="Address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Address';}"></div>
+                <div class="col_1_of_2 span_1_of_2" >
 
-                    <div><input type="text" value="City" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'City';}"></div>
-                    <input type="text" value="" class="code"> - <input type="text" value="" class="number">
-                    <p class="code">Country Code + Phone Number</p>
+                    <div>
+                        <label style="color: #4CB1CA;">First Name</label>
+                        <input type="text" ng-model="firstname"></div>
+                    <div>
+                        <label style="color: #4CB1CA;">Mobile</label>
+                        <input type="text" ng-model="mobile"></div>
+                    <div>
+                        <label style="color: #4CB1CA;">Password</label>
+                        <input type="text" ng-model="password"></div>
+
+
                 </div>
-                <button class="grey">Submit</button>
-                <p class="terms">By clicking 'Create Account' you agree to the <a href="#">Terms &amp; Conditions</a>.</p>
+                <div class="col_1_of_2 span_1_of_2">
+                    <div>
+                        <label style="color: #4CB1CA;">Last Name</label>
+                        <input type="text" ng-model="lastname">
+                    </div>
+                    <div>
+                        <label style="color: #4CB1CA;">Email</label>
+                        <input type="text" ng-model="email">
+                        <span style = "color:red" ng-show = "studentForm.email.$dirty && studentForm.email.$invalid">
+                        <span ng-show = "studentForm.email.$error.required">Email is required.</span>
+                        <span ng-show = "studentForm.email.$error.email">Invalid email address.</span>
+                     </span>
+
+                    </div>
+                    <div style="padding-top: 20px">
+                        <button class="grey" ng-click="registernew(firstname, lastname, email, mobile, password)" style="font-size: 0.95em; width: 100%; padding: 8px; font-family: 'Raleway', sans-serif; margin: 10px 0;">Submit</button>
+                    </div><!--<input type="text" value="" class="code"> - <input type="text" value="" class="number">-->
+                    <!--<p class="code">Country Code + Phone Number</p>-->
+                </div>
+                <!--<button class="grey">Submit</button>-->
+                <p class="terms">By clicking 'Create Account' you agree to the <a href="#">Terms &amp; Conditions</a></p>
+                <div ng-show="testing == '00'">{{testing}}</div>
+                <div ng-show="testing == '03'">{{testing}}</div>
                 <div class="clear"></div>
             </form>
-            </div>
+
+    </div>
     </div>
 </div>
