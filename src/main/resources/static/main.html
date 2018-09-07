@@ -1,230 +1,76 @@
-<!--<div>my profile</div>-->
-<style>
-    .sort-icon {
-        font-size: 9px;
-        margin-left: 5px;
-    }
-
-    th {
-        cursor:pointer;
-    }
-    .one{
-        background: lightgrey;
-        width: 100%;
-    }
-    .two{
-        background: white;
-        width: 100%;
-    }
-    .right{
-        text-align: right!important;
-        width: 100%;
-        margin: 0 auto;
-    }
-    .left{
-        text-align: left!important;
-        width: 100px;
-        float: left;
-        text-transform: uppercase;
-        font-weight: bold;
-    }
-    .inner {
-        width: 50%;
-        margin: 0 auto;
-    }
-    .side-button {
-        text-decoration: none;
-        display: inline-block;
-        text-shadow: 0px 1px 0 rgba(0, 0, 0, 1);
-        font-weight: bold;
-        color: #FFFFFF;
-        background-color: #4ba614;
-        border-radius: 3px;
-        font-size: 14px;
-        /*width: 33.33%;*/
-        text-align: center;
-        vertical-align: top;
-        border: 1px solid #CCCCCC;
-        width: 100%;
-        height: 40px;
-        background-image: linear-gradient(to bottom, #4ba614, #0C6B09);
-    }
-
-    /***
-Bootstrap Line Tabs by @keenthemes
-A component of Metronic Theme - #1 Selling Bootstrap 3 Admin Theme in Themeforest: http://j.mp/metronictheme
-Licensed under MIT
-***/
-
-    /* Tabs panel */
-    .tabbable-panel {
-        border:1px solid #eee;
-        padding: 10px;
-    }
-
-    /* Default mode */
-    .tabbable-line > .nav-tabs {
-        border: none;
-        margin: 0px;
-    }
-    .tabbable-line > .nav-tabs > li {
-        margin-right: 2px;
-    }
-    .tabbable-line > .nav-tabs > li > a {
-        border: 0;
-        margin-right: 0;
-        color: #737373;
-    }
-    .tabbable-line > .nav-tabs > li > a > i {
-        color: #a6a6a6;
-    }
-    .tabbable-line > .nav-tabs > li.open, .tabbable-line > .nav-tabs > li:hover {
-        border-bottom: 4px solid #fbcdcf;
-    }
-    .tabbable-line > .nav-tabs > li.open > a, .tabbable-line > .nav-tabs > li:hover > a {
-        border: 0;
-        background: none !important;
-        color: #333333;
-    }
-    .tabbable-line > .nav-tabs > li.open > a > i, .tabbable-line > .nav-tabs > li:hover > a > i {
-        color: #a6a6a6;
-    }
-    .tabbable-line > .nav-tabs > li.open .dropdown-menu, .tabbable-line > .nav-tabs > li:hover .dropdown-menu {
-        margin-top: 0px;
-    }
-    .tabbable-line > .nav-tabs > li.active {
-        border-bottom: 4px solid #f3565d;
-        position: relative;
-    }
-    .tabbable-line > .nav-tabs > li.active > a {
-        border: 0;
-        color: #333333;
-    }
-    .tabbable-line > .nav-tabs > li.active > a > i {
-        color: #404040;
-    }
-    .tabbable-line > .tab-content {
-        margin-top: -3px;
-        background-color: #fff;
-        border: 0;
-        border-top: 1px solid #eee;
-        padding: 15px 0;
-    }
-    .portlet .tabbable-line > .tab-content {
-        padding-bottom: 0;
-    }
-
-    /* Below tabs mode */
-
-    .tabbable-line.tabs-below > .nav-tabs > li {
-        border-top: 4px solid transparent;
-    }
-    .tabbable-line.tabs-below > .nav-tabs > li > a {
-        margin-top: 0;
-    }
-    .tabbable-line.tabs-below > .nav-tabs > li:hover {
-        border-bottom: 0;
-        border-top: 4px solid #fbcdcf;
-    }
-    .tabbable-line.tabs-below > .nav-tabs > li.active {
-        margin-bottom: -2px;
-        border-bottom: 0;
-        border-top: 4px solid #f3565d;
-    }
-    .tabbable-line.tabs-below > .tab-content {
-        margin-top: -10px;
-        border-top: 0;
-        border-bottom: 1px solid #eee;
-        padding-bottom: 15px;
-    }
-    table tr:nth-child(odd) {
-        background-color: #89f181;
-    }
-    table tr:nth-child(even) {
-        background-color: #ffffff;
-    }
-</style>
-
-<div ng-controller="mainController">
-    <div ng-init="reverseme()">
-        <!--start hack-->
-        <div class=" bs-component" >
-            <form class="form-inline">
-                <div class="form-group">
-                    <label >Search</label>
-                    <input type="text" ng-model="search" class="form-control" placeholder="Search">
+<div class="view hm-white-light jarallax" data-jarallax='{"speed": 0.2}' data-jarallax-video="https://www.youtube.com/watch?vhttps://www.youtube.com/watch?v=syBR4xiikcQ=syBR4xiikcQ">
+    <div class="full-bg-img">
+        <div class="container flex-center">
+            <div class="row">
+                <div class="col-md-12 wow fadeIn">
+                    <div class="text-center text-danger">
+                        <h1 class="display-2 mb-2 wow fadeInDown" data-wow-delay="0.3s">Header + Video</h1>
+                        <h5 class="font-up mb-3 mt-1 font-bold wow fadeInDown" style="font-weight:bold; text-shadow: 0 0 8px #FFF, 0 -2px 12px #222, 0 -5px 15px #666;" data-wow-delay="0.4s">SNIPPET ACTUALIZADO 2018 → <a href="https://goo.gl/nsVK7W">https://goo.gl/nsVK7W</a><br>
+                            UPDATED SNIPPET 2018 → <a href="https://goo.gl/nsVK7W">https://goo.gl/nsVK7W</a></h5>
+                    </div>
                 </div>
-            </form>
-            <table class="table table-striped table-hover">
-                <thead>
-                <tr>
-                    <!--<th>View Options</th>-->
-                    <th ng-click="sort('operation')"> No
-                        <span class="glyphicon sort-icon" ng-show="sortKey=='id'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
-                    </th>
-                    <th ng-click="sort('operation')"> Telco Name
-                        <span class="glyphicon sort-icon" ng-show="sortKey=='id'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
-                    </th>
-                    <th ng-click="sort('amount')"> Incoming PhoneNumber
-                        <span class="glyphicon sort-icon" ng-show="sortKey=='amount'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
-                    </th>
-                    <th ng-click="sort('amount')"> Outgoing PhoneNumber
-                        <span class="glyphicon sort-icon" ng-show="sortKey=='amount'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
-                    </th>
-                    <th ng-click="sort('balance')"> Call Type
-                        <span class="glyphicon sort-icon" ng-show="sortKey=='balance'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
-                    </th>
-                    <th ng-click="sort('balance')"> Date
-                        <span class="glyphicon sort-icon" ng-show="sortKey=='balance'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
-                    </th>
-
-                    <th ng-click="sort('balance')"> Duration
-                        <span class="glyphicon sort-icon" ng-show="sortKey=='balance'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
-                    </th>
-
-                    <th ng-click="sort('balance')"> Status
-                        <span class="glyphicon sort-icon" ng-show="sortKey=='balance'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
-                    </th>
-
-                    <th ng-click="sort('balance')"> Customer Care Response
-                        <span class="glyphicon sort-icon" ng-show="sortKey=='balance'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
-                    </th>
-
-                    <th ng-click="sort('balance')"> Relate
-                        <span class="glyphicon sort-icon" ng-show="sortKey=='balance'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
-                    </th>
-
-                </tr>
-                </thead>
-
-                <!--<tbody dir-paginate="gm in responsemain.history |orderBy:sortKey:reverse|filter:search|itemsPerPage:5">-->
-
-                <tbody ng-repeat="gm in succ |orderBy:sortKey:reverse|filter:search">
-
-                <tr >
-
-                    <td >{{$index+1}}</td>
-                    <td >{{gm.name}}</td>
-                    <td style="color: blue">{{gm.phonenumber}}</td>
-                    <td > {{gm.incphonenumber}}</td>
-                    <td > {{gm.outphonenumber}}</td>
-                    <td ng-style="{'color': gm.calltype == 'Incoming'? 'black' : 'blue'}">{{gm.calltype}}</td>
-                    <td >{{gm.calldate}}</td>
-                    <td >{{gm.duration}}</td>
-                    <td ng-style="{'color': gm.ans == 'Answered'? 'green' : 'red'}">{{gm.ans}}</td>
-                    <td>
-                        <button class="btn-success" ng-click="check(gm.phonenumber)">CHECK RELATIONS</button>
-                        <!--<span ng-if="gm.ans == 'Answered'"><h4>No Action Needed</h4></span>-->
-                        <!--<button style="width: 100%" class="btn-danger" ng-if="gm.ans == 'VoiceMail'">CALL BACK</button>-->
-                    </td>
-                </tr>
-
-                </tbody>
-            </table>
+            </div>
         </div>
-
-        <!--end hack-->
-
     </div>
+</div>
+<div class="py-2"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+            <ul class="list-group">
+                <li class="list-group-item active">SIDEBAR 1</li>
+                <li class="list-group-item">La imagen en el menú tiene un Dropdown</li>
+                <li class="list-group-item">Lorem ipsum.</li>
+                <li class="list-group-item">Lorem ipsum.</li>
+                <li class="list-group-item">Lorem ipsum.</li>
+                <li class="list-group-item">Lorem ipsum.</li>
+            </ul>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <img class="img-fluid" src="https://inst.eecs.berkeley.edu/~cs194-26/fa14/upload/files/proj3/cs194-fi/images/warm_sky.jpg" alt="Ver post">
+                        <div class="card-body secondbase">
+                            <h4 class="card-title">Titulo del post</h4>
+                            <p class="card-text">Por: <a class="text-danger"><b>Miguel92</b></a></p>
+                            <div class="text-center d-flex">
+                                <a href="#" style="flex: 1 1 auto;" class="btn btn-sm default-color-dark"><i style="font-size: 22px" class="fa fa-facebook-f"></i></a>
+                                <a href="#" style="flex: 1 1 auto;" class="btn btn-sm default-color-dark"><i style="font-size: 22px" class="fa fa-twitter"></i></a>
+                                <a href="#" style="flex: 1 1 auto;" class="btn btn-sm default-color-dark"><i style="font-size: 22px" class="fa fa-google"></i></a>
+                            </div>
+                            <a href="#" class="btn btn-primary">Ver post</a>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <img class="img-fluid" src="https://inst.eecs.berkeley.edu/~cs194-26/fa14/upload/files/proj3/cs194-fi/images/warm_sky.jpg" alt="Ver post">
+                        <div class="card-body secondbase">
+                            <h4 class="card-title">Titulo del post</h4>
+                            <p class="card-text">Por: <a class="text-danger"><b>Miguel92</b></a></p>
+                            <div class="text-center d-flex">
+                                <a href="#" style="flex: 1 1 auto;" class="btn btn-sm default-color-dark"><i style="font-size: 22px" class="fa fa-facebook-f"></i></a>
+                                <a href="#" style="flex: 1 1 auto;" class="btn btn-sm default-color-dark"><i style="font-size: 22px" class="fa fa-twitter"></i></a>
+                                <a href="#" style="flex: 1 1 auto;" class="btn btn-sm default-color-dark"><i style="font-size: 22px" class="fa fa-google"></i></a>
+                            </div>
+                            <a href="#" class="btn btn-primary">Ver post</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12 px-2">
+            <ul class="list-group">
+                <li class="list-group-item active">SIDEBAR 2</li>
+                <li class="list-group-item">Lorem ipsum.</li>
+                <li class="list-group-item">Lorem ipsum.</li>
+                <li class="list-group-item">Lorem ipsum.</li>
+                <li class="list-group-item">Lorem ipsum.</li>
+                <li class="list-group-item">Lorem ipsum.</li>
+            </ul>
+        </div>
+    </div>
 </div>

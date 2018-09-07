@@ -8,6 +8,8 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import java.util.Date;
 import java.util.UUID;
 
@@ -30,22 +32,32 @@ public class User {
     private UUID encry;
 
     @Id
+    @Column(name="Id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     //@NotBlank
+    @NotEmpty(message = "*Please provide an first name")
     private String firstname;
 
     //@NotBlank
+    @NotEmpty(message = "*Please provide an last name")
     private String lastname;
 
     //@NotBlank
+    @NotEmpty(message = "*Please provide an mobile")
     private String mobile;
 
     //@NotBlank
+    @Email(message = "*Please provide a valid Email")
+    @NotEmpty(message = "*Please provide an email")
     private String email;
 
     //@NotBlank
+//    @Column(name = "password")
+//    @Length(min = 5, message = "*Your password must have at least 5 characters")
+//    @NotEmpty(message = "*Please provide your password")
+//    @Transient
     private String password;
 
     //@NotBlank
@@ -157,5 +169,9 @@ public class User {
 
     public void setEncry(UUID encry) {
         this.encry = encry;
+    }
+
+    public User orElseThrow(Object o) {
+        return null;
     }
 }

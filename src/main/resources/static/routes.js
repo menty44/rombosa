@@ -28,13 +28,13 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
         })
 
         // nested list with custom controller
-        .state('home.list', {
-            url: '/list',
-            templateUrl: 'partial-home-list.html',
-            controller: function($scope) {
-                $scope.dogs = ['Bernese', 'Husky', 'Goldendoodle'];
-            }
-        })
+        // .state('home.list', {
+        //     url: '/list',
+        //     templateUrl: 'partial-home-list.html',
+        //     controller: function($scope) {
+        //         $scope.dogs = ['Bernese', 'Husky', 'Goldendoodle'];
+        //     }
+        // })
 
         // nested list with custom controller
         .state('leaked', {
@@ -396,57 +396,91 @@ routerApp.controller('paymentController', function($scope, $http) {
 // routerApp.controller('DemoController', DemoController,['sweetalert']);
 routerApp.controller('regController',  function($scope, $http) {
 
-    $scope.registernew  = function registernew(firstname, lastname, email, mobile, password){
+    $scope.registernew  = function registernew(firstname, lastname, email, mobile, password) {
 
         // Text
         $.LoadingOverlay("show", {
-            image       : "",
-            background  : "rgba(165, 190, 100, 0.5)",
-            text        : "Please wait as we setup your Profile ..."
+            image: "",
+            background: "rgba(165, 190, 100, 0.5)",
+            text: "Please wait as we send an Activation Link to your Email....."
         });
 
-        console.log('firstname',firstname);
-        console.log('lastname',lastname);
-        console.log('email',email);
-        console.log('mobile',mobile);
-        console.log('password',password);
+        console.log('firstname', firstname);
+        console.log('lastname', lastname);
+        console.log('email', email);
+        console.log('mobile', mobile);
+        console.log('password', password);
 
-        if(firstname && lastname && email && mobile && password){
-            var url = "http://localhost:8080/api/regnewuser?firstname="+firstname+"&lastname="+lastname+"&mobile="+mobile+"&email="+email+"&password="+password+"&v="+Date.now();
+        if(firstname && lastname && email && mobile && password) {
 
-            $http.get(url).then(function (response) {
+            var emailurl = "http://localhost:8080/api/validateuseremail/" + email;
+            var mobileurl = "http://localhost:8080/api/validatemobile/" + mobile;
+            var url = "http://localhost:8080/api/regnewuser?firstname=" + firstname + "&lastname=" + lastname + "&mobile=" + mobile + "&email=" + email + "&password=" + password + "&v=" + Date.now();
+
+            $http.get(emailurl).then(function (response) {
 
                 //console.log('the time ', _.now);
-                $scope.fred = response.data;
+                var emailresponse = response.data;
 
-                var test = $scope.fred;
+                var testemail = emailresponse;
 
-                $scope.testing = test.code;
+                console.log('email data response', testemail);
 
-                console.log('++ FRIDAY TEST ++', test);
+                if(testemail.code == "00"){
 
-                $.LoadingOverlay("hide");
+                    $http.get(mobileurl).then(function (response) {
+
+                        //console.log('the time ', _.now);
+                        var mobileresponse = response.data;
+
+                        var testmobile = mobileresponse;
+
+                        $scope.testing = testmobile.code;
+
+                        console.log('++ testmobile ++', testmobile);
+
+                        if(testmobile.code == "00"){
+
+                            $http.get(url).then(function (response) {
+
+                                //console.log('the time ', _.now);
+                                $scope.fred = response.data;
+
+                                var test = $scope.fred;
+
+                                $scope.testing = test.code;
+
+                                console.log('++ succeess registration ++', test);
+                                $.LoadingOverlay("hide");
+                            });
+
+                        }else {
+                            $scope.testing = {
+                                "code" : "03",
+                                "message" : "Mobile Phone Number has already been Used, try to Register using a new one"};
+                            $.LoadingOverlay("hide");
+                        }
+
+                    });
+                }else {
+                    $scope.testing = {
+                        "code" : "03",
+                        "message" : "Email has already been Used, try to Register using a new one"
+                    };
+                    $.LoadingOverlay("hide");
+                }
+
             });
+
         }else {
-
-            $scope.testing = {"03" : "Missing Parameters"};
-
-
-
+            $scope.testing = {
+                "code" : "03",
+                "message" : "Missing Parameters"};
+            $.LoadingOverlay("hide");
         }
+    }
 
-
-
-    };
-
-    //angular.module('demo', ['sweetalert']),'sweetalert'
-    // routerApp.controller('DemoController', DemoController,['sweetalert']);
-    //
-    // function DemoController($scope) {
-    //     $scope.btnClickHandler = function() {
-    //         swal('Hello, World!');
-    //     };
-    // }
-});
+    }
+);
 
  

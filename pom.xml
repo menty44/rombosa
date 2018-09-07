@@ -29,6 +29,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -68,22 +69,24 @@
 			<artifactId>json</artifactId>
 			<version>20171018</version>
 		</dependency>
+
 		<dependency>
 			<groupId>com.squareup.okhttp3</groupId>
 			<artifactId>okhttp</artifactId>
 			<version>3.9.0</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
 			<version>4.1.2</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpcore</artifactId>
 			<version>4.1.2</version>
 		</dependency>
-
 
 		<dependency>
             <groupId>org.postgresql</groupId>
@@ -96,6 +99,19 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+		</dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.hateoas/spring-hateoas -->
+        <dependency>
+            <groupId>org.springframework.hateoas</groupId>
+            <artifactId>spring-hateoas</artifactId>
+            <version>0.25.0.RELEASE</version>
+        </dependency>
+
         <!--  Gson dependency -->
         <!--<dependency>-->
             <!--<groupId>com.google.code.gson</groupId>-->
@@ -132,9 +148,6 @@
             <!--<artifactId>json</artifactId>-->
             <!--<version>20090211</version>-->
         <!--</dependency>-->
-
-
-
 
     </dependencies>
 

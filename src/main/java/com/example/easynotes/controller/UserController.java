@@ -8,6 +8,7 @@ import com.example.easynotes.exception.ResourceNotFoundException;
 import com.example.easynotes.model.User;
 import com.example.easynotes.repository.MyErrorRepository;
 import com.example.easynotes.repository.UserRepository;
+import org.json.simple.parser.ParseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,26 +63,9 @@ public class UserController {
 
         String value1 = request.getParameter("email");
 
-//        User msg;
-//        //msg = userRepository.save(user);
-//        msg = userRepository.save(user);
-//
         HashMap<String ,String> hashMap=new HashMap<>();
-//        User i=userRepository.findByEmail(user.getEmail());
-//        if(msg.getEmail()!= null){
-//            hashMap.put("msg","success");
-//            hashMap.put("code","00");
-//            hashMap.put("email",msg.getEmail());
-//            hashMap.put("firstname",msg.getFirstname());
-//            hashMap.put("lastname",msg.getLastname());
-//            hashMap.put("mobile",msg.getMobile());
-//        }else {
-//            hashMap.put("msg","Error");
-//            hashMap.put("code","03");
-//        }
 
         hashMap.put("test", value1);
-
 
         return hashMap;
     }
@@ -98,10 +82,56 @@ public class UserController {
                 .orElseThrow(() -> new ResourceNotFoundException("User", "id", userId));
     }
 
-    @GetMapping("/useremail/{email}")
-    public User getUserByEmail(@PathVariable(value = "email") String Email) {
-        return userRepository.findByEmail(Email);
-                //.orElseThrow(() -> new ResourceNotFoundException("User", "email", Email));
+
+    @GetMapping("/validateuseremail/{email}")
+//    public User getUserByEmails(@PathVariable(value = "email") String Email) {
+    public ResponseEntity<Map<String,String>> getvalidateEmail(@PathVariable(value = "email") String Email) throws ParseException {
+        Map<String,String> response = new HashMap<String, String>();
+        User lst = userRepository.findByEmail(Email);
+
+        if(lst == null ){
+            response.put("mg", "success");
+            response.put("code", "00");
+            response.put("desc", "email record is not in the database proceed to create a new user");
+            return ResponseEntity.ok().body(response);
+        }else {
+
+            System.out.println("");
+            System.out.println(lst.getEmail());
+
+            response.put("msg", "email already been used, please try to register with a new one");
+            response.put("code", "03");
+            response.put("desc", lst.getEmail());
+
+            return ResponseEntity.accepted().body(response);
+
+        }
+        //.orElseThrow(() -> new ResourceNotFoundException("User", "email", Email));
+    }
+
+    @GetMapping("/validatemobile/{mobile}")
+//    public User getUserByEmails(@PathVariable(value = "email") String Email) {
+    public ResponseEntity<Map<String,String>> getvalidateMobilel(@PathVariable(value = "mobile") String mobile) throws ParseException {
+        Map<String,String> response = new HashMap<String, String>();
+        User mob = userRepository.findByMobile(mobile);
+
+        if(mob == null ){
+            response.put("mg", "success");
+            response.put("code", "00");
+            response.put("desc", "mobile phone number record is not in the database proceed to create a new user");
+            return ResponseEntity.ok().body(response);
+        }else {
+
+            System.out.println("");
+            System.out.println(mob.getEmail());
+
+            response.put("msg", "mobile phone number has already been used, please try to register with new number");
+            response.put("code", "03");
+            response.put("desc", mob.getMobile());
+
+            return ResponseEntity.accepted().body(response);
+
+        }
     }
 
     @PutMapping("/user/{id}")
@@ -149,30 +179,33 @@ public class UserController {
 
         Map<String,String> response = new HashMap<String, String>();
 
+            User myemail = userRepository.findByEmail(email);
+            User mymobile = userRepository.findByMobile(mobile);
+
         if(firstname!= null && !firstname.isEmpty() && lastname!= null && !lastname.isEmpty() && mobile!= null && !mobile.isEmpty() && email!= null && !email.isEmpty() && password!= null && !password.isEmpty()){
 
-            User user = new User();
-            UUID secu = encry ;
-            user.setFirstname(firstname);
-            user.setLastname(lastname);
-            user.setMobile(mobile);
-            user.setEmail(email);
-            user.setPassword(password);
-            user.setEncry(secu);
-            user.setActivated("0");
+                User user = new User();
+                UUID secu = encry ;
+                user.setFirstname(firstname);
+                user.setLastname(lastname);
+                user.setMobile(mobile);
+                user.setEmail(email);
+                user.setPassword(password);
+                user.setEncry(secu);
+                user.setActivated("0");
 
-            userRepository.save(user);
+                userRepository.save(user);
 
-            sendMail(email, secu);
+                sendMail(email, secu);
 
-            response.put("ok", "save success");
-            response.put("code", "00");
-            return ResponseEntity.accepted().body(response);
-            //return ResponseEntity.accepted().body(response);
+                response.put("ok", "save success");
+                response.put("code", "00");
+                return ResponseEntity.accepted().body(response);
+
         }else {
-            String ts = "paramsmissing";
-            response.put("error", ts+" has an empty or a null value");
-            response.put("code", "03");
+            String ts = "one of the parameters is missing";
+            response.put("error", ts);
+            response.put("code", "05");
             return ResponseEntity.badRequest().body(response);
         }
     }
@@ -207,7 +240,7 @@ public class UserController {
 
     //new user reg
     @CrossOrigin
-    @RequestMapping(value = "validate", method = RequestMethod.GET, produces = "text/html")
+    @RequestMapping(value = "validate", method = RequestMethod.GET, produces = "application/json")
     public ResponseEntity<Map<String,String>> validateNewUser(@RequestParam(value = "auth", defaultValue = "not available") UUID auth)throws IOException{
 
         Map<String,String> response = new HashMap<String, String>();
@@ -255,6 +288,46 @@ public class UserController {
         response.put("code", "03");
 
         return ResponseEntity.accepted().body(response);
+    }
+
+    @CrossOrigin
+    @RequestMapping(value = "login", method = RequestMethod.GET, produces = "application/json")
+    @ResponseBody
+    public ResponseEntity<Map<String,String>> login(@RequestParam(value = "") String email,
+                                                     @RequestParam(value = "") String password) throws IOException {
+
+        System.out.println("my email" +  email);
+        System.out.println("my password" + password);
+
+        Map<String,String> response = new HashMap<String, String>();
+
+        if(email!= null && !email.isEmpty() && password!= null && !password.isEmpty()){
+
+            User usr = userRepository.findByEmailAndPassword(email, password);
+
+            usr.getEmail();
+            usr.getPassword();
+
+            System.out.println("email from db"+usr.getEmail());
+            System.out.println("pass from db"+usr.getPassword());
+
+            if(usr.getEmail().equals(email) && usr.getPassword().equals(password)){
+                response.put("ok", "00");
+                response.put("msg","success");
+                return ResponseEntity.accepted().body(response);
+            }else {
+                String ts = "paramsmissing";
+                response.put("error", ts+" has an empty or a null value");
+                response.put("code", "03");
+                return ResponseEntity.badRequest().body(response);
+            }
+        }else {
+            String ts = "paramsmissing";
+            response.put("error", ts+" has an empty or a null value");
+            response.put("code", "03");
+            return ResponseEntity.badRequest().body(response);
+        }
+
     }
 
 }

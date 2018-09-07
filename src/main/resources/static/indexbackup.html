@@ -1,0 +1,184 @@
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>AfroBoot | Home of Beauties</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    <script src="js/jquery.min.js"></script>
+    <!--<script src="http://code.angularjs.org/1.2.13/angular.js"></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>-->
+    <!--<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.min.js"></script>-->
+    <script src="http://code.angularjs.org/1.2.13/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>-->
+
+    <script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.5/dist/loadingoverlay.min.js"></script>
+    <script src="routes.js"></script>
+    <link rel="stylesheet" href="bower_components/sweetalert/src/sweetalert.css">
+    <script src="bower_components/ngSweetAlert/SweetAlert.min.js"></script>
+    <script src="bower_components/sweetalert/src/sweetalert.d.ts"></script>
+
+    <!--<script src="register.js"></script>-->
+    <!--<script src="js/app.js"></script>-->
+    <!--<script src="prod/final.js"></script>-->
+    <!--<link rel="stylesheet" type="text/css" href="sweet-alert.css">-->
+    <!--<script src="sweet-alert.js"></script>-->
+    <!--<script src="sweet-alert.min.js"></script>-->
+
+    <!--<script src="fred.js"></script>-->
+</head>
+<body ng-app="routerApp" ng-cloak>
+<div class="index-banner">
+    <div class="header-top">
+        <div class="wrap">
+            <div class="logo">
+                <a href="/"><img src="images/logo.png" alt=""/></a>
+            </div>
+            <div class="menu">
+                <a href="#" class="right_bt" id="activator"><img src="images/nav_icon.png" alt=""></a>
+                <div class="box" id="box">
+                    <div class="box_content_center">
+                        <div class="menu_box_list">
+                            <ul>
+                                <!--<li><a href="index.html">Home</a></li>-->
+                                <!--<li class="active"><a href="about.html">About</a></li>-->
+                                <!--<li><a href="blog.html">Blog</a></li>-->
+                                <!--<li><a href="gallery.html">Gallery</a></li>-->
+                                <!--<li><a href="contact.html">Contact</a></li>-->
+                                <!--<li><a href="404.html">404</a></li>-->
+                                <li><a ui-sref="home">Home</a></li>
+                                <li><a ui-sref="about">About</a></li>
+                                <li><a ui-sref="leaked">Leaked</a></li>
+                                <li><a ui-sref="videos">Clips</a></li>
+                                <li><a ui-sref="photos">Photos</a></li>
+                                <li><a ui-sref="uncensored">Uncensored</a></li>
+                                <li><a ui-sref="dashboard">Dashboard</a></li>
+                                <li><a ui-sref="users">Users</a></li>
+                                <li><a ui-sref="profile">Profile</a></li>
+                                <li><a ui-sref="payment">Payment</a></li>
+                                <li><a ui-sref="contact">Contact</a></li>
+                                <li><a ui-sref="login">Login</a></li>
+                                <li><a ui-sref="register">Register</a></li>
+                            </ul>
+                        </div>
+                        <a class="boxclose" id="boxclose"><img src="images/close.png" alt=""></a>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    var $ = jQuery.noConflict();
+                    $(function() {
+                        $('#activator').click(function(){
+                            $('#box').animate({'top':'0px'},500);
+                        });
+                        $('#boxclose').click(function(){
+                            $('#box').animate({'top':'-700px'},500);
+                        });
+                    });
+                    $(document).ready(function(){
+
+                        //Hide (Collapse) the toggle containers on load
+                        $(".toggle_container").hide();
+
+                        //Switch the "Open" and "Close" state per click then slide up/down (depending on open/close state)
+                        $(".trigger").click(function(){
+                            $(this).toggleClass("active").next().slideToggle("slow");
+                            return false; //Prevent the browser jump to the link anchor
+                        });
+
+                    });
+                </script>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div ui-view></div>
+    <div>
+
+    <script src="js/jquery.wmuSlider.js"></script>
+    <script>
+        $('.example1').wmuSlider();
+    </script>
+</div>
+<div class="main">
+    <div class="content-top">
+        <div class="section1">
+            <div class="cont1 span_2_of_about">
+                <h3 class="m_1"><a ui-sref="register">Create a free account now</a></h3>
+            </div>
+            <div class="rsidebar span_1_of_about">
+                <a ui-sref="register"><div class="btn">Register now</div></a>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="content-bottom">
+        <h2 class="m_2">Browse by Category</h2>
+        <div class="wrap">
+            <div class="section group">
+                <div class="col_1_of_5 span_1_of_5">
+                    <ul class="list1">
+                        <li><a href="/#/about">About</a></li>
+                        <li><a href="/#/leaked">Leaked</a></li>
+                    </ul>
+                </div>
+                <div class="col_1_of_5 span_1_of_5">
+                    <ul class="list1">
+                        <li><a href="/#/login">Login</a></li>
+                        <li><a href="/#/register">Register</a></li>
+                    </ul>
+                </div>
+                <div class="col_1_of_5 span_1_of_5">
+                    <ul class="list1">
+                        <li><a href="/#/photos">Photos</a></li>
+                        <li><a href="/#/videos">Clips</a></li>
+                    </ul>
+                </div>
+                <div class="col_1_of_5 span_1_of_5">
+                    <ul class="list1">
+                        <li><a href="/#/advertise">Advertise</a></li>
+                        <li><a href="/#/uncensored">Uncensored</a></li>
+                    </ul>
+                </div>
+                <div class="col_1_of_5 span_1_of_5">
+                    <ul class="list1">
+
+                        <li><a href="/#/report">Report Content</a></li>
+                        <li><a href="/#/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <!--<div class="clear"></div>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+<script>
+    var app = angular.module('ngRoutingDemo', ['ngRoute']);
+
+    app.config(function ($routeProvider) {
+
+        $routeProvider.when('/register', {
+            templateUrl: '/register.html'
+            //controller: 'loginController'
+            // }).when('/student/:username', {
+            //     templateUrl: '/student.html',
+            //     controller: 'studentController'
+        }).otherwise({
+            redirectTo: "/"
+        });
+
+    });
+</script>
+
+</body>
+</html>

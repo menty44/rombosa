@@ -1,51 +1,113 @@
 <div class="main">
-    <div class="register_account">
+
+
+    <div style="padding-top: 40%" class="container">
+        <h2>Create an Account</h2>
         <div style="background: green; color: white; text-align: center;" ng-show="testing == '00'" class="col-md-12">
             <h1>Registration Successful, Please check your email for the Activation link to Activate your Account</h1>
         </div>
-        <div class="wrap">
-            <h4 class="title">Create an Account</h4>
-            <form>
-                <div class="col_1_of_2 span_1_of_2" >
-
-                    <div>
-                        <label style="color: #4CB1CA;">First Name</label>
-                        <input type="text" ng-model="firstname"></div>
-                    <div>
-                        <label style="color: #4CB1CA;">Mobile</label>
-                        <input type="text" ng-model="mobile"></div>
-                    <div>
-                        <label style="color: #4CB1CA;">Password</label>
-                        <input type="text" ng-model="password"></div>
-
-
+        <div style="background: red; color: white; text-align: center;" ng-show="testing.code == '03'" class="col-md-12">
+            <h1>{{testing.message}}</h1>
+        </div>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label style="color: #28a745;" class="control-label col-sm-2" for="firstname">FIRST NAME:</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="firstname" placeholder="Enter email" name="email" ng-model="firstname">
                 </div>
-                <div class="col_1_of_2 span_1_of_2">
-                    <div>
-                        <label style="color: #4CB1CA;">Last Name</label>
-                        <input type="text" ng-model="lastname">
-                    </div>
-                    <div>
-                        <label style="color: #4CB1CA;">Email</label>
-                        <input type="text" ng-model="email">
-                        <span style = "color:red" ng-show = "email.$dirty && email.$invalid">
-                        <span ng-show = "email.$error.required">Email is required.</span>
-                        <span ng-show = "email.$error.email">Invalid email address.</span>
-                     </span>
-
-                    </div>
-                    <div style="padding-top: 20px">
-                        <button class="grey" ng-click="registernew(firstname, lastname, email, mobile, password)" style="font-size: 0.95em; width: 100%; padding: 8px; font-family: 'Raleway', sans-serif; margin: 10px 0;">Submit</button>
-                    </div><!--<input type="text" value="" class="code"> - <input type="text" value="" class="number">-->
-                    <!--<p class="code">Country Code + Phone Number</p>-->
+            </div>
+            <div class="form-group">
+                <label style="color: #28a745;" class="control-label col-sm-2" for="lastname">LAST NAME:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="lastname" placeholder="Enter password" name="pwd" ng-model="lastname">
                 </div>
-                <!--<button class="grey">Submit</button>-->
-                <p class="terms">By clicking 'Create Account' you agree to the <a href="#">Terms &amp; Conditions</a></p>
-                <div ng-show="testing == '03'">{{testing}}</div>
-                <div class="clear"></div>
-            </form>
+            </div>
 
+            <div class="form-group">
+                <label style="color: #28a745;" class="control-label col-sm-2" for="email">EMAIL:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="email" placeholder="Enter password" name="pwd" ng-model="email">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label style="color: #28a745;" class="control-label col-sm-2" for="mobile">MOBILE:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="mobile" placeholder="Enter password" name="pwd" ng-model="mobile">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label style="color: #28a745;" class="control-label col-sm-2" for="password">PASSWORD:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="password" placeholder="Enter password" name="pwd" ng-model="password">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-info" ng-click="registernew(firstname, lastname, email, mobile, password)">Submit</button>
+                </div>
+            </div>
+        </form>
     </div>
 
-    </div>
+
+
+
+
+
+
+    <!--<div class="register_account">-->
+        <!--<div style="background: green; color: white; text-align: center;" ng-show="testing == '00'" class="col-md-12">-->
+            <!--<h1>Registration Successful, Please check your email for the Activation link to Activate your Account</h1>-->
+        <!--</div>-->
+        <!--<div style="background: red; color: white; text-align: center;" ng-show="testing.code == '03'" class="col-md-12">-->
+            <!--<h1>{{testing.message}}</h1>-->
+        <!--</div>-->
+        <!--<div class="wrap">-->
+            <!--<h4 class="title">Create an Account</h4>-->
+            <!--<form>-->
+                <!--<div class="col_1_of_2 span_1_of_2" >-->
+
+                    <!--<div>-->
+                        <!--<label style="color: #4CB1CA;">First Name</label>-->
+                        <!--<input type="text" ng-model="firstname"></div>-->
+                    <!--<div>-->
+                        <!--<label style="color: #4CB1CA;">Mobile</label>-->
+                        <!--<input type="text" ng-model="mobile"></div>-->
+                    <!--<div>-->
+                        <!--<label style="color: #4CB1CA;">Password</label>-->
+                        <!--<input type="text" ng-model="password"></div>-->
+
+
+                <!--</div>-->
+                <!--<div class="col_1_of_2 span_1_of_2">-->
+                    <!--<div>-->
+                        <!--<label style="color: #4CB1CA;">Last Name</label>-->
+                        <!--<input type="text" ng-model="lastname">-->
+                    <!--</div>-->
+                    <!--<div>-->
+                        <!--<label style="color: #4CB1CA;">Email</label>-->
+                        <!--<input type="text" ng-model="email">-->
+                        <!--<span style = "color:red" ng-show = "email.$dirty && email.$invalid">-->
+                        <!--<span ng-show = "email.$error.required">Email is required.</span>-->
+                        <!--<span ng-show = "email.$error.email">Invalid email address.</span>-->
+                     <!--</span>-->
+
+                    <!--</div>-->
+                    <!--<div style="padding-top: 20px">-->
+                        <!--<button class="grey" ng-click="registernew(firstname, lastname, email, mobile, password)" style="font-size: 0.95em; width: 100%; padding: 8px; font-family: 'Raleway', sans-serif; margin: 10px 0;">Submit</button>-->
+                    <!--</div>&lt;!&ndash;<input type="text" value="" class="code"> - <input type="text" value="" class="number">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<p class="code">Country Code + Phone Number</p>&ndash;&gt;-->
+                <!--</div>-->
+                <!--&lt;!&ndash;<button class="grey">Submit</button>&ndash;&gt;-->
+                <!--<p class="terms">By clicking 'Create Account' you agree to the <a href="#">Terms &amp; Conditions</a></p>-->
+                <!--<div ng-show="testing == '03'">{{testing}}</div>-->
+                <!--<div class="clear"></div>-->
+            <!--</form>-->
+
+    <!--</div>-->
+
+    <!--</div>-->
 </div>
