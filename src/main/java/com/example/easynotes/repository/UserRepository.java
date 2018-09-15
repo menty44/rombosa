@@ -30,6 +30,13 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     User findByEncry(UUID encry);
 
+//    Page<User> findByRoleId(Long roleId, Pageable pageable);
+
+//    @Modifying
+    //@Query("update User u set u.firstname = ?1 where u.lastname = ?2")
+//    @Query(value = "UPDATE users SET role_id=2 WHERE email= ?1")
+//    User setEncry(UUID encry);
+
 //    List<User> findByEmailAndPassword(String email, String password);
     User findByEmailAndPassword(String email, String password);
 

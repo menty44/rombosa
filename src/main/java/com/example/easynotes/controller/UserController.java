@@ -7,11 +7,14 @@ package com.example.easynotes.controller;
 import com.example.easynotes.exception.ResourceNotFoundException;
 import com.example.easynotes.model.User;
 import com.example.easynotes.repository.MyErrorRepository;
+import com.example.easynotes.repository.RoleRepository;
 import com.example.easynotes.repository.UserRepository;
 import org.json.simple.parser.ParseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -21,7 +24,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -40,6 +42,9 @@ public class UserController {
     UserRepository userRepository;
 
     @Autowired
+    RoleRepository roleRepository;
+
+    @Autowired
     MyErrorRepository myErrorRepository;
 
     @Autowired
@@ -53,8 +58,8 @@ public class UserController {
     private UUID encry = UUID.randomUUID();
 
     @GetMapping("/users")
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
+    public Page<User> getAllUsers(Pageable pageable) {
+        return userRepository.findAll(pageable);
     }
 
     @PostMapping("/userpost")
@@ -69,11 +74,6 @@ public class UserController {
 
         return hashMap;
     }
-
-//    @PostMapping("/gender")
-//    public Gender createGender(@Valid @RequestBody Gender gender) {
-//        return genderRepository.save(gender);
-//    }
 
 
     @GetMapping("/user/{id}")
@@ -193,6 +193,8 @@ public class UserController {
                 user.setPassword(password);
                 user.setEncry(secu);
                 user.setActivated("0");
+                user.setMyrole(2);
+                //user.setRole(1);
 
                 userRepository.save(user);
 
@@ -209,6 +211,23 @@ public class UserController {
             return ResponseEntity.badRequest().body(response);
         }
     }
+
+//    public void setDefaultRole( UUID sec) {
+//
+//        //userRepository.findByEncry(sec);
+//
+//        User us = userRepository.findByEncry(sec);
+//                //.orElseThrow(() -> new ResourceNotFoundException("User", "id", sec));
+//
+////        us.setName(roleName.getName());
+//        us.setRole();
+//
+//        User updatedrole = roleRepository.save(us);
+//        return updatedrole;
+//
+//        userRepository.setEncry(sec);
+//
+//    }
 
     public void sendMail( String to, UUID secu) {
 
@@ -329,5 +348,48 @@ public class UserController {
         }
 
     }
+
+
+
+    @CrossOrigin
+    @RequestMapping(value = "acivatelogin", method = RequestMethod.GET, produces = "application/json")
+    @ResponseBody
+    public User acivatelogin(@RequestParam(value = "") String email,
+                                                    @RequestParam(value = "") String password) throws IOException {
+
+        System.out.println("my email" +  email);
+        System.out.println("my password" + password);
+
+        Map<String,String> response = new HashMap<String, String>();
+
+        //User usr = userRepository.findByEmailAndPassword(email, password);
+
+        return userRepository.findByEmailAndPassword(email, password);
+
+    }
+
+
+//    @GetMapping("/role/{roleId}/users")
+//    public Page<User> getAllUserssByRoleId(@PathVariable (value = "roleId") Long roleId,
+//                                                Pageable pageable) {
+//        return userRepository.findByRoleId(roleId, pageable);
+//    }
+
+
+
+    @GetMapping("/role/{roleId}/users/{email}")
+    public User getUserByEmail(@PathVariable (value = "roleId") Long roleId,
+                                 @PathVariable (value = "email") String email
+                               //@Valid @RequestBody User userRequest
+    ) {
+//        if(!roleId.existsById(roleId)) {
+        if(!roleRepository.existsById(roleId)) {
+            throw new ResourceNotFoundException("RoleId " + roleId + " not found");
+        }
+
+        return userRepository.findByEmail(email);
+        //.orElseThrow(() -> new ResourceNotFoundException("Email " + email + "not found"));
+    }
+
 
 }

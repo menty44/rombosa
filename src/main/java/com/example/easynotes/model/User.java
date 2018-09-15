@@ -36,6 +36,17 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
+    //this is the join between the post and the comment object i.e one post has many comments
+//    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+//    @JoinColumn(name = "role_code", nullable = false)
+//    @OnDelete(action = OnDeleteAction.CASCADE)
+//    @JsonIgnore
+//    private Role role;
+
+    @Column(name = "role_code")
+    private int myrole;
+
     //@NotBlank
     @NotEmpty(message = "*Please provide an first name")
     private String firstname;
@@ -174,4 +185,25 @@ public class User {
     public User orElseThrow(Object o) {
         return null;
     }
+
+    public int getMyrole() {
+        return myrole;
+    }
+
+    public void setMyrole(int myrole) {
+        this.myrole = myrole;
+    }
+
+
+    //    public void setRole(Role role) {
+//        this.role = role;
+//    }
+//
+//    public Role getRole() {
+//        return role;
+//    }
+
+//    public void setMyrole(int myrole) {
+//        this.myrole = myrole;
+//    }
 }

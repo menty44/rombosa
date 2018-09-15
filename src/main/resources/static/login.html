@@ -1,54 +1,71 @@
 <div class="main">
-    <div class="register_account">
-        <div style="background: green; color: white; text-align: center;" ng-show="testing == '00'" class="col-md-12">
-            <h1>Registration Successful, Please check your email for the Activation link to Activate your Account</h1>
+    <div style="padding-top: 5%; padding-bottom: 10%" class="container">
+        <h2>Log In To Your Account</h2>
+        <div style="padding-top: 2%">
+        <div ng-hide="mydivs == true" >
+            <div style="background: greenyellow; color: white; text-align: center;" ng-show="fred == '00'" class="col-md-12">
+                <h3>{{test}}</h3>
+            </div>
         </div>
-        <div style="background: red; color: white; text-align: center;" ng-show="testing.code == '03'" class="col-md-12">
-            <h1>{{testing.message}}</h1>
+
+        <div ng-hide="mydivs == true" >
+            <div style="background: red; color: white; text-align: center;" ng-show="statustest500 == 500" class="col-md-12">
+                <h3>Invalid login credentials</h3>
+            </div>
         </div>
-        <div class="wrap">
-            <h4 class="title">Create an Account</h4>
-            <form>
-                <div class="col_1_of_2 span_1_of_2" >
 
-                    <div>
-                        <label style="color: #4CB1CA;">First Name</label>
-                        <input type="text" ng-model="firstname"></div>
-                    <div>
-                        <label style="color: #4CB1CA;">Mobile</label>
-                        <input type="text" ng-model="mobile"></div>
-                    <div>
-                        <label style="color: #4CB1CA;">Password</label>
-                        <input type="text" ng-model="password"></div>
+        <div ng-hide="mydivs == true" >
+            <div style="background: red; color: white; text-align: center;" ng-show="status == 400" class="col-md-12">
+                <h3>Invalid login credentials</h3>
+            </div>
+        </div>
+
+        <div ng-hide="mydivs == true" >
+            <div style="background: red; color: white; text-align: center;" ng-show="status == 404" class="col-md-12">
+                <h3>Invalid login credentials</h3>
+            </div>
+        </div>
+
+        <div ng-hide="mydivs == true" >
+            <div style="background: red; color: white; text-align: center;" ng-show="testfinal" class="col-md-12">
+                <h3>Invalid login credentials</h3>
+            </div>
+        </div>
+
+        <div ng-hide="mydivs == true" >
+            <div style="background: red; color: white; text-align: center;" ng-show="bad =='03'" class="col-md-12">
+                <h3>Invalid login credentials</h3>
+            </div>
+        </div>
+
+        <div ng-hide="mydivs == true" >
+            <div style="background: red; color: white; text-align: center;" ng-show="badmissin =='23'" class="col-md-12">
+                <h3>{{testing.message}}</h3>
+            </div>
+        </div>
+        </div>
 
 
+        <form class="form-horizontal">
+
+            <div class="form-group">
+                <label style="color: #28a745;" class="control-label col-sm-2" for="email">EMAIL:</label>
+                <div class="col-sm-12">
+                    <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" ng-model="email">
                 </div>
-                <div class="col_1_of_2 span_1_of_2">
-                    <div>
-                        <label style="color: #4CB1CA;">Last Name</label>
-                        <input type="text" ng-model="lastname">
-                    </div>
-                    <div>
-                        <label style="color: #4CB1CA;">Email</label>
-                        <input type="text" ng-model="email">
-                        <span style = "color:red" ng-show = "email.$dirty && email.$invalid">
-                        <span ng-show = "email.$error.required">Email is required.</span>
-                        <span ng-show = "email.$error.email">Invalid email address.</span>
-                     </span>
-
-                    </div>
-                    <div style="padding-top: 20px">
-                        <button class="grey" ng-click="registernew(firstname, lastname, email, mobile, password)" style="font-size: 0.95em; width: 100%; padding: 8px; font-family: 'Raleway', sans-serif; margin: 10px 0;">Submit</button>
-                    </div><!--<input type="text" value="" class="code"> - <input type="text" value="" class="number">-->
-                    <!--<p class="code">Country Code + Phone Number</p>-->
+            </div>
+            <div class="form-group">
+                <label style="color: #28a745;" class="control-label col-sm-2" for="password">PASSWORD:</label>
+                <div class="col-sm-12">
+                    <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" ng-model="password">
                 </div>
-                <!--<button class="grey">Submit</button>-->
-                <p class="terms">By clicking 'Create Account' you agree to the <a href="#">Terms &amp; Conditions</a></p>
-                <div ng-show="testing == '03'">{{testing}}</div>
-                <div class="clear"></div>
-            </form>
+            </div>
 
-    </div>
-
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-12">
+                    <button style="width: 100%" type="submit" class="btn btn-info" ng-click="loginacc(email,password)">Submit</button>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
