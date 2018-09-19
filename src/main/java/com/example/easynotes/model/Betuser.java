@@ -31,6 +31,7 @@ public class Betuser {
 
     private String pin;
     private String username;
+    private String status;
 
 
     @Column(nullable = false, updatable = false)
@@ -68,6 +69,14 @@ public class Betuser {
         this.username = username;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public Date getCreatedAt() {
         return createdAt;
     }
@@ -83,4 +92,6 @@ public class Betuser {
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
     }
+
+
 }
