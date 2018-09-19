@@ -115,7 +115,6 @@ int fpWidth = 0;
     public String getRevo(@RequestParam(value = "number", defaultValue = "not available") String number,
                           @RequestParam(value = "amount", defaultValue = "not available") String amount) throws IOException, ParseException {
 
-
         Auth a = new Auth("GvzjNnYgNJtwgwfLBkZh65VPwfuKvs0V", "oOpJICRVlyrGSAkM");
 
         a.authenticate();
@@ -172,7 +171,6 @@ int fpWidth = 0;
         wr.writeBytes(requestJson);
         wr.flush();
         wr.close();
-
 
         int responseCode = con.getResponseCode();
         //System.out.println("\nSending 'POST' request to URL : " + url);
@@ -298,7 +296,6 @@ int fpWidth = 0;
         wr.writeBytes(requestJson);
         wr.flush();
         wr.close();
-
 
         int responseCode = con.getResponseCode();
         //System.out.println("\nSending 'POST' request to URL : " + url);
