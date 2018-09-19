@@ -5,15 +5,23 @@ package com.example.easynotes.controller;
  * Created by admin on 9/15/18.
  */
 
+import com.example.easynotes.model.Betuser;
 import com.example.easynotes.model.Incomingsmscallback;
+import com.example.easynotes.repository.BetuserRepository;
 import com.example.easynotes.repository.SmsRepository;
+import com.example.easynotes.repository.UserRepository;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
+import org.springframework.scheduling.concurrent.ConcurrentTaskExecutor;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.util.concurrent.ListenableFutureCallback;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.AsyncRestTemplate;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -24,6 +32,7 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.concurrent.Executors;
 
 
 /**
@@ -41,7 +50,10 @@ public class BetConstructController {
     SmsRepository smsRepository;
 
     @Autowired
-    UserController userController;
+    UserRepository userRepository;
+
+    @Autowired
+    BetuserRepository betuserRepository;
 
     //new user reg
     @CrossOrigin
@@ -51,7 +63,7 @@ public class BetConstructController {
             @RequestParam(value = "to") String to,
             @RequestParam(value = "date") String date,
             @RequestParam(value = "linkId") String linkId,
-            @RequestParam(value = "text") String text) throws IOException {
+            @RequestParam(value = "text") String text) throws IOException, ParseException {
 
         Map<String,String> response = new HashMap<String, String>();
         
@@ -63,7 +75,25 @@ public class BetConstructController {
         response.put("linkId", linkId);
 
         if(text.equals("balance")){
+            String currentfrom = from.substring(4);
+            String finalfrom = "0"+currentfrom;
 
+            Betuser btu = betuserRepository.findByUsername(finalfrom);
+            //User lst = userRepository.findByEmail(Email);
+
+            if(btu == null){
+                response.put("mg", "fail");
+                response.put("code", "03");
+                response.put("desc", "user not found");
+                return ResponseEntity.ok().body(response);
+            }else {
+                String phone = btu.getUsername();
+                String pin = btu.getPin();
+
+                getuserinfo(phone,pin);
+            }
+
+            //getuserinfo(from);
         }
 
         Saveincomingsms(from, text, date,linkId, to);
@@ -88,17 +118,20 @@ public class BetConstructController {
 
     }
 
-    public static String  getuserinfo() throws IOException, ParseException {
+    public static String  getuserinfo(String phone, String pin) throws IOException, ParseException {
+
+
 
         String sess = getSession();
+
 
         JSONArray jsonArray=new JSONArray();
         JSONObject jsonObject=new JSONObject();
         JSONObject jsonObjectinner=new JSONObject();
         jsonObject.put("command", "login");
 
-        jsonObjectinner.put("username", "0720106420");
-        jsonObjectinner.put("password", "7777");
+        jsonObjectinner.put("username", phone);
+        jsonObjectinner.put("password", pin);
 
         jsonObject.put("params", jsonObjectinner);
 
@@ -170,11 +203,11 @@ public class BetConstructController {
 
             }
         }
-        return test(sess);
+        return test(sess, phone, pin);
 
     }
 
-    public static String test(String sess) throws IOException, ParseException {
+    public static String test(String sess, String phone, String pin) throws IOException, ParseException {
         JSONArray jsonArray=new JSONArray();
         JSONObject jsonObject=new JSONObject();
         JSONObject jsonObjectinner=new JSONObject();
@@ -251,13 +284,41 @@ public class BetConstructController {
                 System.out.println(pair.getValue());
                 String ls = pair.getValue().toString();
 
+                String mynumber = phone.substring(1);
+                String finalnumber = "+254"+mynumber;
+                sendMessage(finalnumber, ls);
                 //return ls;
 
             }
 
         }
+
         return findata.toString();
     }
+
+    private static void sendMessage(String sender, String msg) {
+        System.out.println("Sending text message now");
+        System.out.println(sender);
+        System.out.println(msg);
+        MultiValueMap<String,String> map=new LinkedMultiValueMap<String,String>();
+        String message=msg;
+        HttpHeaders header=new HttpHeaders();
+        header.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+        HttpEntity<MultiValueMap<String,String>> r=new HttpEntity<>(map,header);
+        AsyncRestTemplate asyncRestTemplate = new AsyncRestTemplate(new ConcurrentTaskExecutor(Executors.newFixedThreadPool(100)));
+        asyncRestTemplate.exchange("https://api.africastalking.com/restless/send?username=stimapap&Apikey=95ed1013626cf5015ba5a198ffcb2f8cec922e42390883f2c450c02b92e81773&to="+sender+"&message="+msg, HttpMethod.GET,r,String.class)
+                .addCallback(new ListenableFutureCallback<ResponseEntity<String>>() {
+                    @Override
+                    public void onSuccess(ResponseEntity<String> result) {
+                        System.out.println(result);
+                    }
+
+                    @Override
+                    public void onFailure(Throwable ex) {
+                        ex.printStackTrace();
+                    }
+                });
+     }
 
     public static String  login() throws IOException, ParseException {
 
@@ -338,7 +399,6 @@ public class BetConstructController {
                 String ls = pair.getValue().toString();
 
                 return ls;
-
             }
         }
 
@@ -350,12 +410,10 @@ public class BetConstructController {
     }
 
     public static String  getSession() throws IOException, ParseException {
-
         JSONArray jsonArray=new JSONArray();
         JSONObject jsonObject=new JSONObject();
         JSONObject jsonObjectinner=new JSONObject();
         jsonObject.put("command", "request_session");
-
         jsonObjectinner.put("site_id", 733);
         jsonObjectinner.put("language", "eng");
 
@@ -423,9 +481,9 @@ public class BetConstructController {
             if(pair.getKey().equals("sid")){
                 //System.out.println("this is the sid");
                 System.out.println(pair.getValue());
-                String ls = pair.getValue().toString();
+                String lst = pair.getValue().toString();
 
-                return ls;
+                return lst;
 
             }
         }
