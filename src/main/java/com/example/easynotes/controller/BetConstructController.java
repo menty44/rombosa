@@ -136,7 +136,7 @@ public class BetConstructController {
                 registeruser(phone, pin);
 
                 if(status.equals("1")){
-                    //sendMessage(newphone,newaccept);
+                    sendMessage(newphone,newaccept);
 
                     Betuser up = betuserRepository.findByUsername(newphone);
 
@@ -160,6 +160,22 @@ public class BetConstructController {
 
 //            activate(phone);
             //sendMessage(from, accept);
+        }else if(text.startsWith("changepin")){
+            System.out.println(text);
+            String newpin = text.substring(9);
+            System.out.print(newpin+"\n");
+
+            String mynumberone = from.substring(4);
+            String phone = "0"+mynumberone;
+
+            Betuser finduser = betuserRepository.findByUsername(phone);
+
+            String oldpin = finduser.getPin();
+
+            //Betuser bu = new Betuser();
+            //bu.setPin(newpin);
+
+            changepassword(from, phone, newpin, oldpin);
         }else {
             System.out.println("unknown parameter");
         }
@@ -283,9 +299,201 @@ public class BetConstructController {
 
     }
 
+    public static String  changepassword(String from, String phone, String newpin, String oldpin) throws IOException, ParseException {
+
+        System.out.println("we are inside the changepassword method \n");
+        System.out.println(phone);
+        System.out.println(from);
+        System.out.println(newpin);
+        System.out.println(oldpin);
+
+        String sess = getSession();
+
+        JSONArray jsonArray=new JSONArray();
+        JSONObject jsonObject=new JSONObject();
+        JSONObject jsonObjectinner=new JSONObject();
+        jsonObject.put("command", "login");
+
+        jsonObjectinner.put("username", phone);
+        jsonObjectinner.put("password", oldpin);
+
+        jsonObject.put("params", jsonObjectinner);
+
+        String url = "https://eu-swarm-test.betconstruct.com";
+        URL obj = new URL(url);
+        HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+
+        // Setting basic post request
+        con.setRequestMethod("POST");
+        con.setRequestProperty("User-Agent", "USER_AGENT");
+        con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
+        con.setRequestProperty("Content-Type", "application/json");
+        con.setRequestProperty("Swarm-Session", sess);
+
+        jsonArray.add(jsonObject);
+
+        String requestJson=jsonArray.toString().replaceAll("[\\[\\]]","");
+
+        // Send post request
+        con.setDoOutput(true);
+        DataOutputStream wr = new DataOutputStream(con.getOutputStream());
+        wr.writeBytes(requestJson);
+        wr.flush();
+        wr.close();
+
+        int responseCode = con.getResponseCode();
+        //System.out.println("\nSending 'POST' request to URL : " + url);
+        //System.out.println("Post Data : " + requestJson);
+        //System.out.println(requestJson);
+        //System.out.println("Response Code : " + responseCode);
+
+        BufferedReader in = new BufferedReader(
+                new InputStreamReader(con.getInputStream()));
+        String output;
+        StringBuffer response = new StringBuffer();
+
+        while ((output = in.readLine()) != null) {
+            response.append(output);
+        }
+        in.close();
+
+        //System.out.println("Reading JSON file from Response \n");
+        JSONParser parser = new JSONParser();
+        JSONObject mystring = (JSONObject) parser.parse(response.toString());
+
+        ;
+        Long statuscode = (Long) mystring.get("code");
+//            String mydata = (String) mystring.get("data");
+//        System.out.println("my status code");
+//        System.out.println(statuscode);
+
+        // getting data object for displating the sid
+        Map data1 = ((Map)mystring.get("data"));
+//            System.out.println("my data\n");
+//            System.out.println(data);
+
+        // iterating address Map
+        Iterator<Map.Entry> iterator11 = data1.entrySet().iterator();
+        while (iterator11.hasNext()) {
+            Map.Entry pair = iterator11.next();
+            //System.out.println(pair.getKey() + " : " + pair.getValue());
+            if(pair.getKey().equals("user_id")){
+                //System.out.println("this is the sid");
+                System.out.println(pair.getValue());
+                String ls = pair.getValue().toString();
+                //test(sess);
+
+            }
+        }
+
+
+        return changepasswordsms(from, oldpin, newpin, phone);
+
+    }
+
     public static String testblah(){
 
         return "test freddy";
+    }
+
+    public static String changepasswordsms(String from, String oldpin, String newpin, String sess) throws IOException, ParseException {
+
+        JSONArray jsonArray1=new JSONArray();
+        JSONObject jsonObject1=new JSONObject();
+        JSONObject jsonObjectinnerone1=new JSONObject();
+
+        jsonObject1.put("command", "update_user_password");
+        jsonObject1.put("params", jsonObjectinnerone1);
+        jsonObjectinnerone1.put("password",oldpin);
+        jsonObjectinnerone1.put("new_password", newpin);
+
+        String url1 = "https://eu-swarm-test.betconstruct.com";
+        URL obj = new URL(url1);
+        HttpURLConnection connect = (HttpURLConnection) obj.openConnection();
+
+        // Setting basic post request
+        connect.setRequestMethod("POST");
+        connect.setRequestProperty("User-Agent", "USER_AGENT");
+        connect.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
+        connect.setRequestProperty("Content-Type", "application/json");
+        connect.setRequestProperty("Swarm-Session", sess);
+
+        jsonArray1.add(jsonObject1);
+
+        String requestJson1=jsonArray1.toString().replaceAll("[\\[\\]]","");
+
+        // Send post request
+        connect.setDoOutput(true);
+        DataOutputStream write = new DataOutputStream(connect.getOutputStream());
+        write.writeBytes(requestJson1);
+        write.flush();
+        write.close();
+
+        int responseCode1 = connect.getResponseCode();
+        //String responseContent = connect.getResponseMessage().toString();
+        //System.out.println("\nSending 'POST' request to URL : " + url);
+        //System.out.println("Post Data : " + requestJson);
+        //System.out.println(requestJson);
+        System.out.println("Response Code : " + responseCode1);
+        //System.out.println("Response Content : " + responseContent);
+
+        BufferedReader bufferedReader = new BufferedReader(
+                new InputStreamReader(connect.getInputStream()));
+        String output1;
+        StringBuffer responses = new StringBuffer();
+
+        while ((output1 = bufferedReader.readLine()) != null) {
+            responses.append(output1);
+        }
+        bufferedReader.close();
+
+        //System.out.println("Reading JSON file from Response \n");
+        JSONParser parser1 = new JSONParser();
+        JSONObject mystring1 = (JSONObject) parser1.parse(responses.toString());
+
+        Long statuscode1 = (Long) mystring1.get("code");
+//            String mydata = (String) mystring.get("data");
+//        System.out.println("my status code");
+//        System.out.println(statuscode);
+
+        // getting data object for displating the sid
+        Map findata = ((Map)mystring1.get("data"));
+//            System.out.println("my data\n");
+
+        // iterating address Map
+        Iterator itr1 = findata.entrySet().iterator();
+        while (itr1.hasNext()) {
+            Map.Entry pair = itr1.next();
+            System.out.println(pair.getKey() + " : " + pair.getValue());
+
+//            if(pair.getKey().equals(text)){
+//                //System.out.println("this is the sid");
+//                System.out.println(pair.getValue());
+//                String ls = pair.getValue().toString();
+//
+//                String mynumber = phone.substring(1);
+//                String finalnumber = "+254"+mynumber;
+////                sendMessage(finalnumber, ls);
+//                //return ls;
+//
+//            }
+
+        }
+
+        //return findata.toString();
+
+
+
+        if(statuscode1 == 0){
+            System.out.println("send success sms to bet customer");
+            Betuser bu = new Betuser();
+            bu.setPin(newpin);
+//            sendMessage(from ,"Your Password has been changed successfully");
+        }else {
+            System.out.println("an error occured");
+        }
+
+        return "success";
     }
 
     public static String  getuserinfo(String phone, String pin, String text) throws IOException, ParseException {
@@ -459,7 +667,7 @@ public class BetConstructController {
 
                 String mynumber = phone.substring(1);
                 String finalnumber = "+254"+mynumber;
-                sendMessage(finalnumber, ls);
+//                sendMessage(finalnumber, ls);
                 //return ls;
 
             }
