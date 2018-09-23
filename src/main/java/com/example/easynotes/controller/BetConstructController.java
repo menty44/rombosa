@@ -172,8 +172,8 @@ public class BetConstructController {
 
             String oldpin = finduser.getPin();
 
-            //Betuser bu = new Betuser();
-            //bu.setPin(newpin);
+            finduser.setPin(newpin);
+            betuserRepository.save(finduser);
 
             changepassword(from, phone, newpin, oldpin);
         }else {
@@ -200,6 +200,7 @@ public class BetConstructController {
         smsRepository.save(sms);
 
     }
+
 
     public static String  registeruser(String phone, String pin) throws IOException, ParseException {
 
@@ -299,7 +300,7 @@ public class BetConstructController {
 
     }
 
-    public static String  changepassword(String from, String phone, String newpin, String oldpin) throws IOException, ParseException {
+    public static String changepassword(String from, String phone, String newpin, String oldpin) throws IOException, ParseException {
 
         System.out.println("we are inside the changepassword method \n");
         System.out.println(phone);
@@ -307,7 +308,7 @@ public class BetConstructController {
         System.out.println(newpin);
         System.out.println(oldpin);
 
-        String sess = getSession();
+        String session = getSession();
 
         JSONArray jsonArray=new JSONArray();
         JSONObject jsonObject=new JSONObject();
@@ -328,7 +329,7 @@ public class BetConstructController {
         con.setRequestProperty("User-Agent", "USER_AGENT");
         con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
         con.setRequestProperty("Content-Type", "application/json");
-        con.setRequestProperty("Swarm-Session", sess);
+        con.setRequestProperty("Swarm-Session", session);
 
         jsonArray.add(jsonObject);
 
@@ -386,8 +387,97 @@ public class BetConstructController {
             }
         }
 
+//        System.out.println("we are inside the changepassword level two \n");
+//        System.out.println(session);
+//        System.out.println(from);
+//        System.out.println(newpin);
+//        System.out.println(oldpin);
+//
+//        JSONArray jsonArrayfred=new JSONArray();
+//        JSONObject jsonObjectfred=new JSONObject();
+//        JSONObject jsonObjectinneronefred=new JSONObject();
+//
+//        jsonObjectfred.put("command", "update_user_password");
+//        jsonObjectfred.put("params", jsonObjectinneronefred);
+//        jsonObjectinneronefred.put("password",oldpin);
+//        jsonObjectinneronefred.put("new_password", newpin);
+//
+////        String url = "https://eu-swarm-test.betconstruct.com";
+//        URL objfred = new URL(url);
+//        HttpURLConnection connectfred = (HttpURLConnection) objfred.openConnection();
+//
+//        // Setting basic post request
+//        connectfred.setRequestMethod("POST");
+//        connectfred.setRequestProperty("User-Agent", "USER_AGENT");
+//        connectfred.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
+//        connectfred.setRequestProperty("Content-Type", "application/json");
+//        connectfred.setRequestProperty("Swarm-Session", session);
+//
+//        jsonArrayfred.add(jsonObjectfred);
+//
+//        String requestJson1=jsonArray.toString().replaceAll("[\\[\\]]","");
+//
+//        // Send post request
+//        connectfred.setDoOutput(true);
+//        DataOutputStream write = new DataOutputStream(connectfred.getOutputStream());
+//        write.writeBytes(requestJson1);
+//        write.flush();
+//        write.close();
+//
+//        int responseCode1 = connectfred.getResponseCode();
+//        //String responseContent = connect.getResponseMessage().toString();
+//        //System.out.println("\nSending 'POST' request to URL : " + url);
+//        //System.out.println("Post Data : " + requestJson);
+//        //System.out.println(requestJson);
+//        System.out.println("Response Code : " + responseCode1);
+//        //System.out.println("Response Content : " + responseContent);
+//
+//        BufferedReader bufferedReader = new BufferedReader(
+//                new InputStreamReader(connectfred.getInputStream()));
+//        String output1;
+//        StringBuffer responses = new StringBuffer();
+//
+//        while ((output1 = bufferedReader.readLine()) != null) {
+//            responses.append(output1);
+//        }
+//        bufferedReader.close();
+//
+//        //System.out.println("Reading JSON file from Response \n");
+//        JSONParser parser1fred = new JSONParser();
+//        JSONObject mystring1fred = (JSONObject) parser1fred.parse(responses.toString());
+//
+//        Long statuscode1 = (Long) mystring1fred.get("code");
+////            String mydata = (String) mystring.get("data");
+////        System.out.println("my status code");
+////        System.out.println(statuscode);
+//
+//        // getting data object for displating the sid
+//        Map findata = ((Map)mystring1fred.get("data"));
+////            System.out.println("my data\n");
+//
+//        // iterating address Map
+//        Iterator itr1 = findata.entrySet().iterator();
+//        while (itr1.hasNext()) {
+//            Map.Entry pair = (Map.Entry) itr1.next();
+//            System.out.println(pair.getKey() + " : " + pair.getValue());
+//
+////            if(pair.getKey().equals(text)){
+////                //System.out.println("this is the sid");
+////                System.out.println(pair.getValue());
+////                String ls = pair.getValue().toString();
+////
+////                String mynumber = phone.substring(1);
+////                String finalnumber = "+254"+mynumber;
+//////                sendMessage(finalnumber, ls);
+////                //return ls;
+////
+////            }
+//
+//        }
+//
+//        //return findata.toString();
 
-        return changepasswordsms(from, oldpin, newpin, phone);
+         return changepasswordsms(from, oldpin, newpin, session);
 
     }
 
@@ -396,19 +486,25 @@ public class BetConstructController {
         return "test freddy";
     }
 
-    public static String changepasswordsms(String from, String oldpin, String newpin, String sess) throws IOException, ParseException {
+    public static String changepasswordsms(String from, String oldpin, String newpin, String session) throws IOException, ParseException {
 
-        JSONArray jsonArray1=new JSONArray();
-        JSONObject jsonObject1=new JSONObject();
-        JSONObject jsonObjectinnerone1=new JSONObject();
+        System.out.println("we are inside the changepassword level two \n");
+        System.out.println(session);
+        System.out.println(from);
+        System.out.println(newpin);
+        System.out.println(oldpin);
 
-        jsonObject1.put("command", "update_user_password");
-        jsonObject1.put("params", jsonObjectinnerone1);
-        jsonObjectinnerone1.put("password",oldpin);
-        jsonObjectinnerone1.put("new_password", newpin);
+        JSONArray jsonArray=new JSONArray();
+        JSONObject jsonObject=new JSONObject();
+        JSONObject jsonObjectinnerone=new JSONObject();
 
-        String url1 = "https://eu-swarm-test.betconstruct.com";
-        URL obj = new URL(url1);
+        jsonObject.put("command", "update_user_password");
+        jsonObject.put("params", jsonObjectinnerone);
+        jsonObjectinnerone.put("password",oldpin);
+        jsonObjectinnerone.put("new_password", newpin);
+
+        String url = "https://eu-swarm-test.betconstruct.com";
+        URL obj = new URL(url);
         HttpURLConnection connect = (HttpURLConnection) obj.openConnection();
 
         // Setting basic post request
@@ -416,11 +512,11 @@ public class BetConstructController {
         connect.setRequestProperty("User-Agent", "USER_AGENT");
         connect.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
         connect.setRequestProperty("Content-Type", "application/json");
-        connect.setRequestProperty("Swarm-Session", sess);
+        connect.setRequestProperty("Swarm-Session", session);
 
-        jsonArray1.add(jsonObject1);
+        jsonArray.add(jsonObject);
 
-        String requestJson1=jsonArray1.toString().replaceAll("[\\[\\]]","");
+        String requestJson1=jsonArray.toString().replaceAll("[\\[\\]]","");
 
         // Send post request
         connect.setDoOutput(true);
@@ -463,7 +559,7 @@ public class BetConstructController {
         // iterating address Map
         Iterator itr1 = findata.entrySet().iterator();
         while (itr1.hasNext()) {
-            Map.Entry pair = itr1.next();
+            Map.Entry pair = (Map.Entry) itr1.next();
             System.out.println(pair.getKey() + " : " + pair.getValue());
 
 //            if(pair.getKey().equals(text)){
@@ -486,14 +582,24 @@ public class BetConstructController {
 
         if(statuscode1 == 0){
             System.out.println("send success sms to bet customer");
-            Betuser bu = new Betuser();
-            bu.setPin(newpin);
-//            sendMessage(from ,"Your Password has been changed successfully");
+//            saveupdatedpassworddb(newpin);
+            sendMessage(from ,"Your Password has been changed successfully, Current password is: "+newpin);
         }else {
             System.out.println("an error occured");
         }
 
         return "success";
+//        Map<String,String> response = new HashMap<String, String>();
+//
+//        response.put("code", "00");
+//        response.put("msg", "success");
+//        return ResponseEntity.ok(response);
+    }
+
+    public void saveupdatedpassworddb(String newpin){
+        Betuser bu = new Betuser();
+        bu.setPin(newpin);
+        betuserRepository.save(bu);
     }
 
     public static String  getuserinfo(String phone, String pin, String text) throws IOException, ParseException {
